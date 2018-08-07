@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
                       "http://www.w3.org/TR/html40/loose.dtd">
 <HTML>
-<!-- Created on August, 6 2018 by texi2html 1.66 -->
+<!-- Created on August, 7 2018 by texi2html 1.66 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -19,15 +19,15 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 <META NAME="Generator" CONTENT="texi2html 1.66">
-<LINK REL="stylesheet" HREF="pintos.css">
+ <LINK REL="stylesheet" HREF="../assets/cos450.css">
 </HEAD>
 
 <BODY >
 
-<A NAME="SEC16"></A>
+<A NAME="SEC15"></A>
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
 <TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_1.html#SEC1"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_3.html#SEC33"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_3.html#SEC32"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -36,7 +36,7 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 <HR SIZE=2>
 <H1> 2. Project 1: Threads </H1>
-<!--docid::SEC16::-->
+<!--docid::SEC15::-->
 <P>
 
 In this assignment, we give you a minimally functional thread system.
@@ -52,25 +52,25 @@ side.  Compilation should be done in the <Q><TT>threads</TT></Q> directory.
 <P>
 
 Before you read the description of this project, you should read all of
-the following sections: <A HREF="pintos_1.html#SEC1">1. Introduction</A>, <A HREF="pintos_8.html#SEC139">C. Coding Standards</A>,
-<A HREF="pintos_10.html#SEC146">E. Debugging Tools</A>, and <A HREF="pintos_11.html#SEC159">F. Development Tools</A>.  You should at least
-skim the material from <A HREF="pintos_6.html#SEC92">A.1 Loading</A> through <A HREF="pintos_6.html#SEC112">A.5 Memory Allocation</A>, especially <A HREF="pintos_6.html#SEC101">A.3 Synchronization</A>.  To complete this project
-you will also need to read <A HREF="pintos_7.html#SEC132">B. 4.4<ACRONYM>BSD</ACRONYM> Scheduler</A>.
+the following sections: <A HREF="pintos_1.html#SEC1">1. Introduction</A>, <A HREF="pintos_8.html#SEC138">C. Coding Standards</A>,
+<A HREF="pintos_10.html#SEC145">E. Debugging Tools</A>, and <A HREF="pintos_11.html#SEC158">F. Development Tools</A>.  You should at least
+skim the material from <A HREF="pintos_6.html#SEC91">A.1 Loading</A> through <A HREF="pintos_6.html#SEC111">A.5 Memory Allocation</A>, especially <A HREF="pintos_6.html#SEC100">A.3 Synchronization</A>.  To complete this project
+you will also need to read <A HREF="pintos_7.html#SEC131">B. 4.4<ACRONYM>BSD</ACRONYM> Scheduler</A>.
 </P>
 <P>
 
 <A NAME="Project 1 Background"></A>
 <HR SIZE="6">
-<A NAME="SEC17"></A>
+<A NAME="SEC16"></A>
 <H2> 2.1 Background </H2>
-<!--docid::SEC17::-->
+<!--docid::SEC16::-->
 <P>
 
 <A NAME="Understanding Threads"></A>
 <HR SIZE="6">
-<A NAME="SEC18"></A>
+<A NAME="SEC17"></A>
 <H3> 2.1.1 Understanding Threads </H3>
-<!--docid::SEC18::-->
+<!--docid::SEC17::-->
 <P>
 
 The first step is to read and understand the code for the initial thread
@@ -124,9 +124,9 @@ thread we're switching to.
 <P>
 
 Using the GDB debugger, slowly trace through a context
-switch to see what happens (see section <A HREF="pintos_10.html#SEC152">E.5 GDB</A>).  You can set a
+switch to see what happens (see section <A HREF="pintos_10.html#SEC151">E.5 GDB</A>).  You can set a
 breakpoint on <CODE>schedule()</CODE> to start out, and then
-single-step from there.<A NAME="DOCF1" HREF="pintos_fot.html#FOOT1">(1)</A>  Be sure
+single-step from there.<A NAME="DOCF2" HREF="pintos_fot.html#FOOT2">(2)</A>  Be sure
 to keep track of each thread's address
 and state, and what procedures are on the call stack for each thread.
 You will notice that when one thread calls <CODE>switch_threads()</CODE>,
@@ -134,7 +134,7 @@ another thread starts running, and the first thing the new thread does
 is to return from <CODE>switch_threads()</CODE>.  You will understand the thread
 system once you understand why and how the <CODE>switch_threads()</CODE> that
 gets called is different from the <CODE>switch_threads()</CODE> that returns.
-See section <A HREF="pintos_6.html#SEC100">A.2.3 Thread Switching</A>, for more information.
+See section <A HREF="pintos_6.html#SEC99">A.2.3 Thread Switching</A>, for more information.
 </P>
 <P>
 
@@ -144,15 +144,15 @@ tries to detect stack overflow, but it cannot do so perfectly.  You
 may cause bizarre problems, such as mysterious kernel panics, if you
 declare large data structures as non-static local variables,
 e.g. <Q><SAMP>int buf[1000];</SAMP></Q>.  Alternatives to stack allocation include
-the page allocator and the block allocator (see section <A HREF="pintos_6.html#SEC112">A.5 Memory Allocation</A>).
+the page allocator and the block allocator (see section <A HREF="pintos_6.html#SEC111">A.5 Memory Allocation</A>).
 </P>
 <P>
 
 <A NAME="Project 1 Source Files"></A>
 <HR SIZE="6">
-<A NAME="SEC19"></A>
+<A NAME="SEC18"></A>
 <H3> 2.1.2 Source Files </H3>
-<!--docid::SEC19::-->
+<!--docid::SEC18::-->
 <P>
 
 Here is a brief overview of the files in the <Q><TT>threads</TT></Q>
@@ -169,7 +169,7 @@ code to look at.
 <DD>The kernel loader.  Assembles to 512 bytes of code and data that the
 PC BIOS loads into memory and which in turn finds the kernel on disk,
 loads it into memory, and jumps to <CODE>start()</CODE> in <Q><TT>start.S</TT></Q>.
-See section <A HREF="pintos_6.html#SEC93">A.1.1 The Loader</A>, for details.  You should not need to look at
+See section <A HREF="pintos_6.html#SEC92">A.1.1 The Loader</A>, for details.  You should not need to look at
 this code or modify it.
 <P>
 
@@ -177,7 +177,7 @@ this code or modify it.
 <DT><Q><TT>start.S</TT></Q>
 <DD>Does basic setup needed for memory protection and 32-bit
 operation on 80<VAR>x</VAR>86 CPUs.  Unlike the loader, this code is
-actually part of the kernel.  See section <A HREF="pintos_6.html#SEC94">A.1.2 Low-Level Kernel Initialization</A>,
+actually part of the kernel.  See section <A HREF="pintos_6.html#SEC93">A.1.2 Low-Level Kernel Initialization</A>,
 for details.
 <P>
 
@@ -185,7 +185,7 @@ for details.
 <DT><Q><TT>kernel.lds.S</TT></Q>
 <DD>The linker script used to link the kernel.  Sets the load address of
 the kernel and arranges for <Q><TT>start.S</TT></Q> to be near the beginning
-of the kernel image.  See section <A HREF="pintos_6.html#SEC93">A.1.1 The Loader</A>, for details. Again, you
+of the kernel image.  See section <A HREF="pintos_6.html#SEC92">A.1.1 The Loader</A>, for details. Again, you
 should not need to look at this code
 or modify it, but it's here in case you're curious.
 <P>
@@ -196,7 +196,7 @@ or modify it, but it's here in case you're curious.
 <DD>Kernel initialization, including <CODE>main()</CODE>, the kernel's &quot;main
 program.&quot;  You should look over <CODE>main()</CODE> at least to see what
 gets initialized.  You might want to add your own initialization code
-here.  See section <A HREF="pintos_6.html#SEC95">A.1.3 High-Level Kernel Initialization</A>, for details.
+here.  See section <A HREF="pintos_6.html#SEC94">A.1.3 High-Level Kernel Initialization</A>, for details.
 <P>
 
 </P>
@@ -204,7 +204,7 @@ here.  See section <A HREF="pintos_6.html#SEC95">A.1.3 High-Level Kernel Initial
 <DD><DT><Q><TT>thread.h</TT></Q>
 <DD>Basic thread support.  Much of your work will take place in these files.
 <Q><TT>thread.h</TT></Q> defines <CODE>struct thread</CODE>, which you are likely to modify
-in all four projects.  See <A HREF="pintos_6.html#SEC98">A.2.1 <CODE>struct thread</CODE></A> and <A HREF="pintos_6.html#SEC97">A.2 Threads</A> for
+in all four projects.  See <A HREF="pintos_6.html#SEC97">A.2.1 <CODE>struct thread</CODE></A> and <A HREF="pintos_6.html#SEC96">A.2 Threads</A> for
 more information.
 <P>
 
@@ -212,34 +212,34 @@ more information.
 <DT><Q><TT>switch.S</TT></Q>
 <DD><DT><Q><TT>switch.h</TT></Q>
 <DD>Assembly language routine for switching threads.  Already discussed
-above.  See section <A HREF="pintos_6.html#SEC99">A.2.2 Thread Functions</A>, for more information.
+above.  See section <A HREF="pintos_6.html#SEC98">A.2.2 Thread Functions</A>, for more information.
 <P>
 
 </P>
 <DT><Q><TT>palloc.c</TT></Q>
 <DD><DT><Q><TT>palloc.h</TT></Q>
 <DD>Page allocator, which hands out system memory in multiples of 4 kB
-pages.  See section <A HREF="pintos_6.html#SEC113">A.5.1 Page Allocator</A>, for more information.
+pages.  See section <A HREF="pintos_6.html#SEC112">A.5.1 Page Allocator</A>, for more information.
 <P>
 
 </P>
 <DT><Q><TT>malloc.c</TT></Q>
 <DD><DT><Q><TT>malloc.h</TT></Q>
 <DD>A simple implementation of <CODE>malloc()</CODE> and <CODE>free()</CODE> for
-the kernel.  See section <A HREF="pintos_6.html#SEC114">A.5.2 Block Allocator</A>, for more information.
+the kernel.  See section <A HREF="pintos_6.html#SEC113">A.5.2 Block Allocator</A>, for more information.
 <P>
 
 </P>
 <DT><Q><TT>interrupt.c</TT></Q>
 <DD><DT><Q><TT>interrupt.h</TT></Q>
 <DD>Basic interrupt handling and functions for turning interrupts on and
-off.  See section <A HREF="pintos_6.html#SEC108">A.4 Interrupt Handling</A>, for more information.
+off.  See section <A HREF="pintos_6.html#SEC107">A.4 Interrupt Handling</A>, for more information.
 <P>
 
 </P>
 <DT><Q><TT>intr-stubs.S</TT></Q>
 <DD><DT><Q><TT>intr-stubs.h</TT></Q>
-<DD>Assembly code for low-level interrupt handling.  See section <A HREF="pintos_6.html#SEC109">A.4.1 Interrupt Infrastructure</A>, for more information.
+<DD>Assembly code for low-level interrupt handling.  See section <A HREF="pintos_6.html#SEC108">A.4.1 Interrupt Infrastructure</A>, for more information.
 <P>
 
 </P>
@@ -248,7 +248,7 @@ off.  See section <A HREF="pintos_6.html#SEC108">A.4 Interrupt Handling</A>, for
 <DD>Basic synchronization primitives: semaphores, locks, condition
 variables, and optimization barriers.  You will need to use these for
 synchronization in all
-four projects.  See section <A HREF="pintos_6.html#SEC101">A.3 Synchronization</A>, for more information.
+four projects.  See section <A HREF="pintos_6.html#SEC100">A.3 Synchronization</A>, for more information.
 <P>
 
 </P>
@@ -275,9 +275,9 @@ Register,&quot; for more information.
 
 <A NAME="devices code"></A>
 <HR SIZE="6">
-<A NAME="SEC20"></A>
+<A NAME="SEC19"></A>
 <H4> 2.1.2.1 <Q><TT>devices</TT></Q> code </H4>
-<!--docid::SEC20::-->
+<!--docid::SEC19::-->
 <P>
 
 The basic threaded kernel also includes these files in the
@@ -381,9 +381,9 @@ because each device uses one of the PIT's output channel.
 
 <A NAME="lib files"></A>
 <HR SIZE="6">
-<A NAME="SEC21"></A>
+<A NAME="SEC20"></A>
 <H4> 2.1.2.2 <Q><TT>lib</TT></Q> files </H4>
-<!--docid::SEC21::-->
+<!--docid::SEC20::-->
 <P>
 
 Finally, <Q><TT>lib</TT></Q> and <Q><TT>lib/kernel</TT></Q> contain useful library
@@ -408,17 +408,17 @@ details:
 <DD><DT><Q><TT>stdlib.h</TT></Q>
 <DD><DT><Q><TT>string.c</TT></Q>
 <DD><DT><Q><TT>string.h</TT></Q>
-<DD>A subset of the standard C library.  See section <A HREF="pintos_8.html#SEC141">C.2 C99</A>, for
+<DD>A subset of the standard C library.  See section <A HREF="pintos_8.html#SEC140">C.2 C99</A>, for
 information
 on a few recently introduced pieces of the C library that you might
-not have encountered before.  See section <A HREF="pintos_8.html#SEC142">C.3 Unsafe String Functions</A>, for
+not have encountered before.  See section <A HREF="pintos_8.html#SEC141">C.3 Unsafe String Functions</A>, for
 information on what's been intentionally left out for safety.
 <P>
 
 </P>
 <DT><Q><TT>debug.c</TT></Q>
 <DD><DT><Q><TT>debug.h</TT></Q>
-<DD>Functions and macros to aid debugging.  See section <A HREF="pintos_10.html#SEC146">E. Debugging Tools</A>, for
+<DD>Functions and macros to aid debugging.  See section <A HREF="pintos_10.html#SEC145">E. Debugging Tools</A>, for
 more information.
 <P>
 
@@ -472,9 +472,9 @@ you probably won't have any need for it in project 1.
 
 <A NAME="Project 1 Synchronization"></A>
 <HR SIZE="6">
-<A NAME="SEC22"></A>
+<A NAME="SEC21"></A>
 <H3> 2.1.3 Synchronization </H3>
-<!--docid::SEC22::-->
+<!--docid::SEC21::-->
 <P>
 
 Proper synchronization is an important part of the solutions to these
@@ -484,7 +484,7 @@ there's no possibility for race conditions.  Therefore, it's tempting to
 solve all synchronization problems this way, but <STRONG>don't</STRONG>.
 Instead, use semaphores, locks, and condition variables to solve the
 bulk of your synchronization problems.  Read the tour section on
-synchronization (see section <A HREF="pintos_6.html#SEC101">A.3 Synchronization</A>) or the comments in
+synchronization (see section <A HREF="pintos_6.html#SEC100">A.3 Synchronization</A>) or the comments in
 <Q><TT>threads/synch.c</TT></Q> if you're unsure what synchronization primitives
 may be used in what situations.
 </P>
@@ -537,9 +537,9 @@ calls <CODE>thread_yield()</CODE> is one form of busy waiting.
 
 <A NAME="Development Suggestions"></A>
 <HR SIZE="6">
-<A NAME="SEC23"></A>
+<A NAME="SEC22"></A>
 <H3> 2.1.4 Development Suggestions </H3>
-<!--docid::SEC23::-->
+<!--docid::SEC22::-->
 <P>
 
 In the past, many groups divided the assignment into pieces, then each
@@ -554,12 +554,11 @@ boot, much less pass any tests.
 <P>
 
 Instead, we recommend integrating your team's changes early and often,
-using a source code control system such as Git (see section <A HREF="pintos_11.html#SEC162">F.3 Git</A>).
+using a source code control system such as Git (see section <A HREF="pintos_11.html#SEC161">F.3 Git</A>).
 This is less likely to produce surprises, because everyone can see
 everyone else's code as it is written, instead of just when it is
-finished.  Source code control systems also make it possible to review 
-changes and, when a change introduces a bug, drop back to working 
-versions of code.
+finished.  These systems also make it possible to review changes and,
+when a change introduces a bug, drop back to working versions of code.
 </P>
 <P>
 
@@ -567,40 +566,40 @@ You should expect to run into bugs that you simply don't understand
 while working on this and subsequent projects.  When you do,
 reread the appendix on debugging tools, which is filled with
 useful debugging tips that should help you to get back up to speed
-(see section <A HREF="pintos_10.html#SEC146">E. Debugging Tools</A>).  Be sure to read the section on backtraces
-(see section <A HREF="pintos_10.html#SEC150">E.4 Backtraces</A>), which will help you to get the most out of every
+(see section <A HREF="pintos_10.html#SEC145">E. Debugging Tools</A>).  Be sure to read the section on backtraces
+(see section <A HREF="pintos_10.html#SEC149">E.4 Backtraces</A>), which will help you to get the most out of every
 kernel panic or assertion failure.
 </P>
 <P>
 
 <A NAME="Project 1 Requirements"></A>
 <HR SIZE="6">
-<A NAME="SEC24"></A>
+<A NAME="SEC23"></A>
 <H2> 2.2 Requirements </H2>
-<!--docid::SEC24::-->
+<!--docid::SEC23::-->
 <P>
 
 <A NAME="Project 1 Design Document"></A>
 <HR SIZE="6">
-<A NAME="SEC25"></A>
+<A NAME="SEC24"></A>
 <H3> 2.2.1 Design Document </H3>
-<!--docid::SEC25::-->
+<!--docid::SEC24::-->
 <P>
 
 Before you turn in your project, you must copy <A HREF="threads.tmpl">the
 project 1 design document template</A> into your source tree under the name
 <Q><TT>pintos/src/threads/DESIGNDOC</TT></Q> and fill it in.  We recommend that
 you read the design document template before you start working on the
-project.  See section <A HREF="pintos_9.html#SEC143">D. Project Documentation</A>, for a sample design document
+project.  See section <A HREF="pintos_9.html#SEC142">D. Project Documentation</A>, for a sample design document
 that goes along with a fictitious project.
 </P>
 <P>
 
 <A NAME="Alarm Clock"></A>
 <HR SIZE="6">
-<A NAME="SEC26"></A>
+<A NAME="SEC25"></A>
 <H3> 2.2.2 Alarm Clock </H3>
-<!--docid::SEC26::-->
+<!--docid::SEC25::-->
 <P>
 
 Reimplement <CODE>timer_sleep()</CODE>, defined in <Q><TT>devices/timer.c</TT></Q>.
@@ -656,9 +655,9 @@ although it could be useful for project 4.
 
 <A NAME="Priority Scheduling"></A>
 <HR SIZE="6">
-<A NAME="SEC27"></A>
+<A NAME="SEC26"></A>
 <H3> 2.2.3 Priority Scheduling </H3>
-<!--docid::SEC27::-->
+<!--docid::SEC26::-->
 <P>
 
 Implement priority scheduling in Pintos.
@@ -748,15 +747,15 @@ The priority scheduler is not used in any later project.
 
 <A NAME="Advanced Scheduler"></A>
 <HR SIZE="6">
-<A NAME="SEC28"></A>
+<A NAME="SEC27"></A>
 <H3> 2.2.4 Advanced Scheduler </H3>
-<!--docid::SEC28::-->
+<!--docid::SEC27::-->
 <P>
 
 Implement a multilevel feedback queue scheduler similar to the
 4.4<ACRONYM>BSD</ACRONYM> scheduler to
 reduce the average response time for running jobs on your system.
-See section <A HREF="pintos_7.html#SEC132">B. 4.4<ACRONYM>BSD</ACRONYM> Scheduler</A>, for detailed requirements.
+See section <A HREF="pintos_7.html#SEC131">B. 4.4<ACRONYM>BSD</ACRONYM> Scheduler</A>, for detailed requirements.
 </P>
 <P>
 
@@ -793,9 +792,9 @@ The advanced scheduler is not used in any later project.
 
 <A NAME="Project 1 FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC29"></A>
+<A NAME="SEC28"></A>
 <H2> 2.3 FAQ </H2>
-<!--docid::SEC29::-->
+<!--docid::SEC28::-->
 <P>
 
 </P>
@@ -931,7 +930,7 @@ This is just confusing output from the <CODE>backtrace</CODE> program.  It
 does not actually mean that <CODE>pass()</CODE> called <CODE>debug_panic()</CODE>.  In
 fact, <CODE>fail()</CODE> called <CODE>debug_panic()</CODE> (via the <CODE>PANIC()</CODE>
 macro).  GCC knows that <CODE>debug_panic()</CODE> does not return, because it
-is declared <CODE>NO_RETURN</CODE> (see section <A HREF="pintos_10.html#SEC149">E.3 Function and Parameter Attributes</A>), so it doesn't include any code in <CODE>fail()</CODE> to take
+is declared <CODE>NO_RETURN</CODE> (see section <A HREF="pintos_10.html#SEC148">E.3 Function and Parameter Attributes</A>), so it doesn't include any code in <CODE>fail()</CODE> to take
 control when <CODE>debug_panic()</CODE> returns.  This means that the return
 address on the stack looks like it is at the beginning of the function
 that happens to follow <CODE>fail()</CODE> in memory, which in this case happens
@@ -939,7 +938,7 @@ to be <CODE>pass()</CODE>.
 </P>
 <P>
 
-See section <A HREF="pintos_10.html#SEC150">E.4 Backtraces</A>, for more information.
+See section <A HREF="pintos_10.html#SEC149">E.4 Backtraces</A>, for more information.
 </P>
 <P>
 
@@ -1000,9 +999,9 @@ kernel thread but the first.
 
 <A NAME="Alarm Clock FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC30"></A>
+<A NAME="SEC29"></A>
 <H3> 2.3.1 Alarm Clock FAQ </H3>
-<!--docid::SEC30::-->
+<!--docid::SEC29::-->
 <P>
 
 </P>
@@ -1019,9 +1018,9 @@ expect Pintos to have been phased out of the Computer Science curriculum.
 
 <A NAME="Priority Scheduling FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC31"></A>
+<A NAME="SEC30"></A>
 <H3> 2.3.2 Priority Scheduling FAQ </H3>
-<!--docid::SEC31::-->
+<!--docid::SEC30::-->
 <P>
 
 </P>
@@ -1164,9 +1163,9 @@ acquired and released twice.
 
 <A NAME="Advanced Scheduler FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC32"></A>
+<A NAME="SEC31"></A>
 <H3> 2.3.3 Advanced Scheduler FAQ </H3>
-<!--docid::SEC32::-->
+<!--docid::SEC31::-->
 <P>
 
 </P>
@@ -1227,8 +1226,8 @@ average.
 <A NAME="Project 2--User Programs"></A>
 <HR SIZE="6">
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_2.html#SEC16"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_3.html#SEC33"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_2.html#SEC15"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_3.html#SEC32"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -1237,7 +1236,7 @@ average.
 <BR>
 <FONT SIZE="-1">
 This document was generated
-by <I>Stephen Houser</I> on <I>August, 6 2018</I>
+by <I>Stephen Houser</I> on <I>August, 7 2018</I>
 using <A HREF="http://texi2html.cvshome.org"><I>texi2html</I></A>
 </FONT>
 

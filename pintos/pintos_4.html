@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
                       "http://www.w3.org/TR/html40/loose.dtd">
 <HTML>
-<!-- Created on August, 6 2018 by texi2html 1.66 -->
+<!-- Created on August, 7 2018 by texi2html 1.66 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -19,15 +19,15 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 <META NAME="Generator" CONTENT="texi2html 1.66">
-<LINK REL="stylesheet" HREF="pintos.css">
+ <LINK REL="stylesheet" HREF="../assets/cos450.css">
 </HEAD>
 
 <BODY >
 
-<A NAME="SEC54"></A>
+<A NAME="SEC53"></A>
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_3.html#SEC33"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_5.html#SEC76"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_3.html#SEC32"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_5.html#SEC75"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -36,7 +36,7 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 <HR SIZE=2>
 <H1> 4. Project 3: Virtual Memory </H1>
-<!--docid::SEC54::-->
+<!--docid::SEC53::-->
 <P>
 
 By now you should have some familiarity with the inner workings of
@@ -57,22 +57,22 @@ in project 3.
 <P>
 
 You will continue to handle Pintos disks and file systems the same way
-you did in the previous assignment (see section <A HREF="pintos_3.html#SEC36">3.1.2 Using the File System</A>).
+you did in the previous assignment (see section <A HREF="pintos_3.html#SEC35">3.1.2 Using the File System</A>).
 </P>
 <P>
 
 <A NAME="Project 3 Background"></A>
 <HR SIZE="6">
-<A NAME="SEC55"></A>
+<A NAME="SEC54"></A>
 <H2> 4.1 Background </H2>
-<!--docid::SEC55::-->
+<!--docid::SEC54::-->
 <P>
 
 <A NAME="Project 3 Source Files"></A>
 <HR SIZE="6">
-<A NAME="SEC56"></A>
+<A NAME="SEC55"></A>
 <H3> 4.1.1 Source Files </H3>
-<!--docid::SEC56::-->
+<!--docid::SEC55::-->
 <P>
 
 You will work in the <Q><TT>vm</TT></Q> directory for this project.  The
@@ -98,23 +98,23 @@ use this interface to access the swap partition as a block device.
 
 <A NAME="Memory Terminology"></A>
 <HR SIZE="6">
-<A NAME="SEC57"></A>
+<A NAME="SEC56"></A>
 <H3> 4.1.2 Memory Terminology </H3>
-<!--docid::SEC57::-->
+<!--docid::SEC56::-->
 <P>
 
 Careful definitions are needed to keep discussion of virtual memory from
 being confusing.  Thus, we begin by presenting some terminology for
 memory and storage.  Some of these terms should be familiar from project
-2 (see section <A HREF="pintos_3.html#SEC38">3.1.4 Virtual Memory Layout</A>), but much of it is new.
+2 (see section <A HREF="pintos_3.html#SEC37">3.1.4 Virtual Memory Layout</A>), but much of it is new.
 </P>
 <P>
 
 <A NAME="Pages"></A>
 <HR SIZE="6">
-<A NAME="SEC58"></A>
+<A NAME="SEC57"></A>
 <H4> 4.1.2.1 Pages </H4>
-<!--docid::SEC58::-->
+<!--docid::SEC57::-->
 <P>
 
 A <EM>page</EM>, sometimes called a <EM>virtual page</EM>, is a continuous
@@ -138,20 +138,20 @@ are those pages below virtual address <CODE>PHYS_BASE</CODE>, typically
 <TT>0xc0000000</TT> (3 GB).  The set of <EM>kernel (virtual) pages</EM>, on the
 other hand, is global, remaining the same regardless of what thread or
 process is active.  The kernel may access both user and kernel pages,
-but a user process may access only its own user pages.  See section <A HREF="pintos_3.html#SEC38">3.1.4 Virtual Memory Layout</A>, for more information.
+but a user process may access only its own user pages.  See section <A HREF="pintos_3.html#SEC37">3.1.4 Virtual Memory Layout</A>, for more information.
 </P>
 <P>
 
 Pintos provides several useful functions for working with virtual
-addresses.  See section <A HREF="pintos_6.html#SEC115">A.6 Virtual Addresses</A>, for details.
+addresses.  See section <A HREF="pintos_6.html#SEC114">A.6 Virtual Addresses</A>, for details.
 </P>
 <P>
 
 <A NAME="Frames"></A>
 <HR SIZE="6">
-<A NAME="SEC59"></A>
+<A NAME="SEC58"></A>
 <H4> 4.1.2.2 Frames </H4>
-<!--docid::SEC59::-->
+<!--docid::SEC58::-->
 <P>
 
 A <EM>frame</EM>, sometimes called a <EM>physical frame</EM> or a <EM>page
@@ -179,22 +179,22 @@ kernel virtual memory.
 <P>
 
 Pintos provides functions for translating between physical addresses and
-kernel virtual addresses.  See section <A HREF="pintos_6.html#SEC115">A.6 Virtual Addresses</A>, for details.
+kernel virtual addresses.  See section <A HREF="pintos_6.html#SEC114">A.6 Virtual Addresses</A>, for details.
 </P>
 <P>
 
 <A NAME="Page Tables"></A>
 <HR SIZE="6">
-<A NAME="SEC60"></A>
+<A NAME="SEC59"></A>
 <H4> 4.1.2.3 Page Tables </H4>
-<!--docid::SEC60::-->
+<!--docid::SEC59::-->
 <P>
 
 In Pintos, a <EM>page table</EM> is a data structure that the CPU uses to
 translate a virtual address to a physical address, that is, from a page
 to a frame.  The page table format is dictated by the 80<VAR>x</VAR>86
 architecture.  Pintos provides page table management code in
-<Q><TT>pagedir.c</TT></Q> (see section <A HREF="pintos_6.html#SEC116">A.7 Page Table</A>).
+<Q><TT>pagedir.c</TT></Q> (see section <A HREF="pintos_6.html#SEC115">A.7 Page Table</A>).
 </P>
 <P>
 
@@ -219,9 +219,9 @@ address, on the right.
 
 <A NAME="Swap Slots"></A>
 <HR SIZE="6">
-<A NAME="SEC61"></A>
+<A NAME="SEC60"></A>
 <H4> 4.1.2.4 Swap Slots </H4>
-<!--docid::SEC61::-->
+<!--docid::SEC60::-->
 <P>
 
 A <EM>swap slot</EM> is a continuous, page-size region of disk space in the
@@ -233,9 +233,9 @@ page-aligned because there is no downside in doing so.
 
 <A NAME="Resource Management Overview"></A>
 <HR SIZE="6">
-<A NAME="SEC62"></A>
+<A NAME="SEC61"></A>
 <H3> 4.1.3 Resource Management Overview </H3>
-<!--docid::SEC62::-->
+<!--docid::SEC61::-->
 <P>
 
 You will need to design the following data structures:
@@ -248,7 +248,7 @@ You will need to design the following data structures:
 <DD><P>
 
 Enables page fault handling by supplementing the hadrware page table.
-See section <A HREF="pintos_4.html#SEC63">4.1.4 Managing the Supplemental Page Table</A>.
+See section <A HREF="pintos_4.html#SEC62">4.1.4 Managing the Supplemental Page Table</A>.
 </P>
 <P>
 
@@ -257,7 +257,7 @@ See section <A HREF="pintos_4.html#SEC63">4.1.4 Managing the Supplemental Page T
 <DD><P>
 
 Allows efficient implementation of eviction policy.
-See section <A HREF="pintos_4.html#SEC64">4.1.5 Managing the Frame Table</A>.
+See section <A HREF="pintos_4.html#SEC63">4.1.5 Managing the Frame Table</A>.
 </P>
 <P>
 
@@ -266,7 +266,7 @@ See section <A HREF="pintos_4.html#SEC64">4.1.5 Managing the Frame Table</A>.
 <DD><P>
 
 Tracks usage of swap slots.
-See section <A HREF="pintos_4.html#SEC66">4.1.6 Managing the Swap Table</A>.
+See section <A HREF="pintos_4.html#SEC65">4.1.6 Managing the Swap Table</A>.
 </P>
 <P>
 
@@ -316,7 +316,7 @@ although you could extend their implementation to support resizing.
 </P>
 <P>
 
-Pintos also includes a hash table data structure (see section <A HREF="pintos_6.html#SEC124">A.8 Hash Table</A>).
+Pintos also includes a hash table data structure (see section <A HREF="pintos_6.html#SEC123">A.8 Hash Table</A>).
 Pintos hash tables efficiently support insertions and deletions over a
 wide range of table sizes.
 </P>
@@ -331,9 +331,9 @@ Thus, we do not recommend implementing any advanced data structure
 
 <A NAME="Managing the Supplemental Page Table"></A>
 <HR SIZE="6">
-<A NAME="SEC63"></A>
+<A NAME="SEC62"></A>
 <H3> 4.1.4 Managing the Supplemental Page Table </H3>
-<!--docid::SEC63::-->
+<!--docid::SEC62::-->
 <P>
 
 The <EM>supplemental page table</EM> supplements the page table with
@@ -358,7 +358,7 @@ in terms of pages.  Optionally, you may use the page table itself as an
 index to track the members of the supplemental page table.  You will
 have to modify the Pintos page table implementation in <Q><TT>pagedir.c</TT></Q>
 to do so.  We recommend this approach for advanced students only.
-See section <A HREF="pintos_6.html#SEC122">A.7.4.2 Page Table Entry Format</A>, for more information.
+See section <A HREF="pintos_6.html#SEC121">A.7.4.2 Page Table Entry Format</A>, for more information.
 </P>
 <P>
 
@@ -393,7 +393,7 @@ access terminates the process and thereby frees all of its resources.
 
 </P>
 <LI>
-Obtain a frame to store the page.  See section <A HREF="pintos_4.html#SEC64">4.1.5 Managing the Frame Table</A>, for
+Obtain a frame to store the page.  See section <A HREF="pintos_4.html#SEC63">4.1.5 Managing the Frame Table</A>, for
 details.
 <P>
 
@@ -422,9 +422,9 @@ physical page.  You can use the functions in <Q><TT>userprog/pagedir.c</TT></Q>.
 
 <A NAME="Managing the Frame Table"></A>
 <HR SIZE="6">
-<A NAME="SEC64"></A>
+<A NAME="SEC63"></A>
 <H3> 4.1.5 Managing the Frame Table </H3>
-<!--docid::SEC64::-->
+<!--docid::SEC63::-->
 <P>
 
 The <EM>frame table</EM> contains one entry for each frame that contains a
@@ -489,9 +489,9 @@ The evicted frame may then be used to store a different page.
 
 <A NAME="Accessed and Dirty Bits"></A>
 <HR SIZE="6">
-<A NAME="SEC65"></A>
+<A NAME="SEC64"></A>
 <H4> 4.1.5.1 Accessed and Dirty Bits </H4>
-<!--docid::SEC65::-->
+<!--docid::SEC64::-->
 <P>
 
 80<VAR>x</VAR>86 hardware provides some assistance for implementing page
@@ -524,16 +524,16 @@ credit (see  <A HREF="pintos_4.html#VM Extra Credit">VM Extra Credit</A>), or if
 </P>
 <P>
 
-See section <A HREF="pintos_6.html#SEC119">A.7.3 Accessed and Dirty Bits</A>, for details of the functions
+See section <A HREF="pintos_6.html#SEC118">A.7.3 Accessed and Dirty Bits</A>, for details of the functions
 to work with accessed and dirty bits.
 </P>
 <P>
 
 <A NAME="Managing the Swap Table"></A>
 <HR SIZE="6">
-<A NAME="SEC66"></A>
+<A NAME="SEC65"></A>
 <H3> 4.1.6 Managing the Swap Table </H3>
-<!--docid::SEC66::-->
+<!--docid::SEC65::-->
 <P>
 
 The swap table tracks in-use and free swap slots.  It should allow
@@ -569,9 +569,9 @@ Free a swap slot when its contents are read back into a frame.
 
 <A NAME="Managing Memory Mapped Files Back"></A>
 <HR SIZE="6">
-<A NAME="SEC67"></A>
+<A NAME="SEC66"></A>
 <H3> 4.1.7 Managing Memory Mapped Files </H3>
-<!--docid::SEC67::-->
+<!--docid::SEC66::-->
 <P>
 
 The file system is most commonly accessed with <CODE>read</CODE> and
@@ -624,9 +624,9 @@ segments within the process.
 
 <A NAME="Project 3 Suggested Order of Implementation"></A>
 <HR SIZE="6">
-<A NAME="SEC68"></A>
+<A NAME="SEC67"></A>
 <H2> 4.2 Suggested Order of Implementation </H2>
-<!--docid::SEC68::-->
+<!--docid::SEC67::-->
 <P>
 
 We suggest the following initial order of implementation:
@@ -635,7 +635,7 @@ We suggest the following initial order of implementation:
 
 <OL>
 <LI>
-Frame table (see section <A HREF="pintos_4.html#SEC64">4.1.5 Managing the Frame Table</A>).  Change <Q><TT>process.c</TT></Q>
+Frame table (see section <A HREF="pintos_4.html#SEC63">4.1.5 Managing the Frame Table</A>).  Change <Q><TT>process.c</TT></Q>
 to use your frame table allocator.
 <P>
 
@@ -651,7 +651,7 @@ cases.
 
 </P>
 <LI>
-Supplemental page table and page fault handler (see section <A HREF="pintos_4.html#SEC63">4.1.4 Managing the Supplemental Page Table</A>).  Change <Q><TT>process.c</TT></Q> to record the
+Supplemental page table and page fault handler (see section <A HREF="pintos_4.html#SEC62">4.1.4 Managing the Supplemental Page Table</A>).  Change <Q><TT>process.c</TT></Q> to record the
 necessary information in the supplemental page table when loading an
 executable and setting up its stack.  Implement loading of code and data
 segments in the page fault handler.  For now, consider only valid
@@ -668,7 +668,7 @@ reclamation on process exit in parallel.
 </P>
 <P>
 
-The next step is to implement eviction (see section <A HREF="pintos_4.html#SEC64">4.1.5 Managing the Frame Table</A>).  Initially you could choose the page to evict randomly.  At
+The next step is to implement eviction (see section <A HREF="pintos_4.html#SEC63">4.1.5 Managing the Frame Table</A>).  Initially you could choose the page to evict randomly.  At
 this point, you need to consider how to manage accessed and dirty bits
 and aliasing of user and kernel pages.  Synchronization is also a
 concern: how do you deal with it if process A faults on a page whose
@@ -679,9 +679,9 @@ eviction strategy such as the clock algorithm.
 
 <A NAME="Project 3 Requirements"></A>
 <HR SIZE="6">
-<A NAME="SEC69"></A>
+<A NAME="SEC68"></A>
 <H2> 4.3 Requirements </H2>
-<!--docid::SEC69::-->
+<!--docid::SEC68::-->
 <P>
 
 This assignment is an open-ended design problem.  We are going to say as
@@ -695,25 +695,25 @@ partition, how to implement paging, etc.
 
 <A NAME="Project 3 Design Document"></A>
 <HR SIZE="6">
-<A NAME="SEC70"></A>
+<A NAME="SEC69"></A>
 <H3> 4.3.1 Design Document </H3>
-<!--docid::SEC70::-->
+<!--docid::SEC69::-->
 <P>
 
 Before you turn in your project, you must copy <A HREF="vm.tmpl">the
 project 3 design document template</A> into your source tree under the name
 <Q><TT>pintos/src/vm/DESIGNDOC</TT></Q> and fill it in.  We recommend that you
 read the design document template before you start working on the
-project.  See section <A HREF="pintos_9.html#SEC143">D. Project Documentation</A>, for a sample design document
+project.  See section <A HREF="pintos_9.html#SEC142">D. Project Documentation</A>, for a sample design document
 that goes along with a fictitious project.
 </P>
 <P>
 
 <A NAME="Paging"></A>
 <HR SIZE="6">
-<A NAME="SEC71"></A>
+<A NAME="SEC70"></A>
 <H3> 4.3.2 Paging </H3>
-<!--docid::SEC71::-->
+<!--docid::SEC70::-->
 <P>
 
 Implement paging for segments loaded from executables.  All of these
@@ -772,9 +772,9 @@ be read from the underlying file and the remainder zeroed.
 
 <A NAME="Stack Growth"></A>
 <HR SIZE="6">
-<A NAME="SEC72"></A>
+<A NAME="SEC71"></A>
 <H3> 4.3.3 Stack Growth </H3>
-<!--docid::SEC72::-->
+<!--docid::SEC71::-->
 <P>
 
 Implement stack growth.  In project 2, the stack was a single page at
@@ -792,7 +792,7 @@ other accesses.
 
 User programs are buggy if they write to the stack below the stack
 pointer, because typical real OSes may interrupt a process at any time
-to deliver a &quot;signal,&quot; which pushes data on the stack.<A NAME="DOCF3" HREF="pintos_fot.html#FOOT3">(3)</A>
+to deliver a &quot;signal,&quot; which pushes data on the stack.<A NAME="DOCF4" HREF="pintos_fot.html#FOOT4">(4)</A>
 However, the 80<VAR>x</VAR>86 <CODE>PUSH</CODE> instruction checks access
 permissions before it adjusts the stack pointer, so it may cause a page
 fault 4 bytes below the stack pointer.  (Otherwise, <CODE>PUSH</CODE> would
@@ -807,7 +807,7 @@ program's stack pointer.  Within a system call or a page fault generated
 by a user program, you can retrieve it from the <CODE>esp</CODE> member of the
 <CODE>struct intr_frame</CODE> passed to <CODE>syscall_handler()</CODE> or
 <CODE>page_fault()</CODE>, respectively.  If you verify user pointers before
-accessing them (see section <A HREF="pintos_3.html#SEC40">3.1.5 Accessing User Memory</A>), these are the only cases
+accessing them (see section <A HREF="pintos_3.html#SEC39">3.1.5 Accessing User Memory</A>), these are the only cases
 you need to handle.  On the other hand, if you depend on page faults to
 detect invalid memory access, you will need to handle another case,
 where a page fault occurs in the kernel.  Since the processor only 
@@ -840,9 +840,9 @@ page should be written to swap.
 
 <A NAME="Memory Mapped Files"></A>
 <HR SIZE="6">
-<A NAME="SEC73"></A>
+<A NAME="SEC72"></A>
 <H3> 4.3.4 Memory Mapped Files </H3>
-<!--docid::SEC73::-->
+<!--docid::SEC72::-->
 <P>
 
 Implement memory mapped files, including the following system calls.
@@ -927,10 +927,10 @@ private (i.e. copy-on-write).
 <P>
 
 <HR SIZE="6">
-<A NAME="SEC74"></A>
+<A NAME="SEC73"></A>
 <H3> 4.3.5 Accessing User Memory </H3>
-<!--docid::SEC74::-->
-You will need to adapt your code to access user memory (see section <A HREF="pintos_3.html#SEC40">3.1.5 Accessing User Memory</A>) while handling a system call.  Just as user processes may
+<!--docid::SEC73::-->
+You will need to adapt your code to access user memory (see section <A HREF="pintos_3.html#SEC39">3.1.5 Accessing User Memory</A>) while handling a system call.  Just as user processes may
 access pages whose content is currently in a file or in swap space, so
 can they pass addresses that refer to such non-resident pages to system
 calls.  Moreover, unless your kernel takes measures to prevent this,
@@ -964,9 +964,9 @@ it is not necessary.
 
 <A NAME="Project 3 FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC75"></A>
+<A NAME="SEC74"></A>
 <H2> 4.4 FAQ </H2>
-<!--docid::SEC75::-->
+<!--docid::SEC74::-->
 <P>
 
 </P>
@@ -982,7 +982,7 @@ and deleted; a changed line counts as both an insertion and a deletion.
 
 This summary is relative to the Pintos base code, but the reference
 solution for project 3 starts from the reference solution to project 2.
-See section <A HREF="pintos_3.html#SEC48">3.4 FAQ</A>, for the summary of project 2.
+See section <A HREF="pintos_3.html#SEC47">3.4 FAQ</A>, for the summary of project 2.
 </P>
 <P>
 
@@ -1041,7 +1041,7 @@ harder.
 <DD><P>
 
 Returning from <CODE>page_fault()</CODE> resumes the current user process
-(see section <A HREF="pintos_6.html#SEC110">A.4.2 Internal Interrupt Handling</A>).
+(see section <A HREF="pintos_6.html#SEC109">A.4.2 Internal Interrupt Handling</A>).
 It will then retry the instruction to which the instruction pointer points.
 </P>
 <P>
@@ -1102,8 +1102,8 @@ implementation with various user memory sizes.
 <A NAME="Project 4--File Systems"></A>
 <HR SIZE="6">
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_4.html#SEC54"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_5.html#SEC76"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_4.html#SEC53"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_5.html#SEC75"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -1112,7 +1112,7 @@ implementation with various user memory sizes.
 <BR>
 <FONT SIZE="-1">
 This document was generated
-by <I>Stephen Houser</I> on <I>August, 6 2018</I>
+by <I>Stephen Houser</I> on <I>August, 7 2018</I>
 using <A HREF="http://texi2html.cvshome.org"><I>texi2html</I></A>
 </FONT>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
                       "http://www.w3.org/TR/html40/loose.dtd">
 <HTML>
-<!-- Created on August, 6 2018 by texi2html 1.66 -->
+<!-- Created on August, 7 2018 by texi2html 1.66 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -19,15 +19,15 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 <META NAME="Generator" CONTENT="texi2html 1.66">
-<LINK REL="stylesheet" HREF="pintos.css">
+ <LINK REL="stylesheet" HREF="../assets/cos450.css">
 </HEAD>
 
 <BODY >
 
-<A NAME="SEC76"></A>
+<A NAME="SEC75"></A>
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_4.html#SEC54"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_6.html#SEC91"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_4.html#SEC53"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_6.html#SEC90"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -36,7 +36,7 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 <HR SIZE=2>
 <H1> 5. Project 4: File Systems </H1>
-<!--docid::SEC76::-->
+<!--docid::SEC75::-->
 <P>
 
 In the previous two assignments, you made extensive use of a
@@ -58,16 +58,16 @@ to 5% extra credit if you do enable VM.
 
 <A NAME="Project 4 Background"></A>
 <HR SIZE="6">
-<A NAME="SEC77"></A>
+<A NAME="SEC76"></A>
 <H2> 5.1 Background </H2>
-<!--docid::SEC77::-->
+<!--docid::SEC76::-->
 <P>
 
 <A NAME="File System New Code"></A>
 <HR SIZE="6">
-<A NAME="SEC78"></A>
+<A NAME="SEC77"></A>
 <H3> 5.1.1 New Code </H3>
-<!--docid::SEC78::-->
+<!--docid::SEC77::-->
 <P>
 
 Here are some files that are probably new to you.  These are in the
@@ -85,7 +85,7 @@ kernel command line.
 </P>
 <DT><Q><TT>filesys.h</TT></Q>
 <DD><DT><Q><TT>filesys.c</TT></Q>
-<DD>Top-level interface to the file system.  See section <A HREF="pintos_3.html#SEC36">3.1.2 Using the File System</A>,
+<DD>Top-level interface to the file system.  See section <A HREF="pintos_3.html#SEC35">3.1.2 Using the File System</A>,
 for an introduction.
 <P>
 
@@ -140,9 +140,9 @@ prepared for interactions with all previous parts.
 
 <A NAME="Testing File System Persistence"></A>
 <HR SIZE="6">
-<A NAME="SEC79"></A>
+<A NAME="SEC78"></A>
 <H3> 5.1.2 Testing File System Persistence </H3>
-<!--docid::SEC79::-->
+<!--docid::SEC78::-->
 <P>
 
 By now, you should be familiar with the basic process of running the
@@ -181,9 +181,9 @@ for test <VAR>t</VAR> is named <Q><TT><VAR>t</VAR>.tar</TT></Q>.
 
 <A NAME="Project 4 Suggested Order of Implementation"></A>
 <HR SIZE="6">
-<A NAME="SEC80"></A>
+<A NAME="SEC79"></A>
 <H2> 5.2 Suggested Order of Implementation </H2>
-<!--docid::SEC80::-->
+<!--docid::SEC79::-->
 <P>
 
 To make your job easier, we suggest implementing the parts of this
@@ -193,7 +193,7 @@ project in the following order:
 
 <OL>
 <LI>
-Buffer cache (see section <A HREF="pintos_5.html#SEC85">5.3.4 Buffer Cache</A>).  Implement the buffer cache and
+Buffer cache (see section <A HREF="pintos_5.html#SEC84">5.3.4 Buffer Cache</A>).  Implement the buffer cache and
 integrate it into the existing file system.  At this point all the
 tests from project 2 (and project 3, if you're building on it) should
 still pass.
@@ -201,13 +201,13 @@ still pass.
 
 </P>
 <LI>
-Extensible files (see section <A HREF="pintos_5.html#SEC83">5.3.2 Indexed and Extensible Files</A>).  After this
+Extensible files (see section <A HREF="pintos_5.html#SEC82">5.3.2 Indexed and Extensible Files</A>).  After this
 step, your project should pass the file growth tests.
 <P>
 
 </P>
 <LI>
-Subdirectories (see section <A HREF="pintos_5.html#SEC84">5.3.3 Subdirectories</A>).  Afterward, your project
+Subdirectories (see section <A HREF="pintos_5.html#SEC83">5.3.3 Subdirectories</A>).  Afterward, your project
 should pass the directory tests.
 <P>
 
@@ -228,32 +228,32 @@ You should think about synchronization throughout.
 
 <A NAME="Project 4 Requirements"></A>
 <HR SIZE="6">
-<A NAME="SEC81"></A>
+<A NAME="SEC80"></A>
 <H2> 5.3 Requirements </H2>
-<!--docid::SEC81::-->
+<!--docid::SEC80::-->
 <P>
 
 <A NAME="Project 4 Design Document"></A>
 <HR SIZE="6">
-<A NAME="SEC82"></A>
+<A NAME="SEC81"></A>
 <H3> 5.3.1 Design Document </H3>
-<!--docid::SEC82::-->
+<!--docid::SEC81::-->
 <P>
 
 Before you turn in your project, you must copy <A HREF="filesys.tmpl">the
 project 4 design document template</A> into your source tree under the name
 <Q><TT>pintos/src/filesys/DESIGNDOC</TT></Q> and fill it in.  We recommend that
 you read the design document template before you start working on the
-project.  See section <A HREF="pintos_9.html#SEC143">D. Project Documentation</A>, for a sample design document
+project.  See section <A HREF="pintos_9.html#SEC142">D. Project Documentation</A>, for a sample design document
 that goes along with a fictitious project.
 </P>
 <P>
 
 <A NAME="Indexed and Extensible Files"></A>
 <HR SIZE="6">
-<A NAME="SEC83"></A>
+<A NAME="SEC82"></A>
 <H3> 5.3.2 Indexed and Extensible Files </H3>
-<!--docid::SEC83::-->
+<!--docid::SEC82::-->
 <P>
 
 The basic file system allocates files as a single extent, making it
@@ -314,9 +314,9 @@ your file system.
 
 <A NAME="Subdirectories"></A>
 <HR SIZE="6">
-<A NAME="SEC84"></A>
+<A NAME="SEC83"></A>
 <H3> 5.3.3 Subdirectories </H3>
-<!--docid::SEC84::-->
+<!--docid::SEC83::-->
 <P>
 
 Implement a hierarchical name space.  In the basic file system, all
@@ -468,9 +468,9 @@ extra effort on your part.
 
 <A NAME="Buffer Cache"></A>
 <HR SIZE="6">
-<A NAME="SEC85"></A>
+<A NAME="SEC84"></A>
 <H3> 5.3.4 Buffer Cache </H3>
-<!--docid::SEC85::-->
+<!--docid::SEC84::-->
 <P>
 
 Modify the file system to keep a cache of file blocks.  When a request
@@ -541,9 +541,9 @@ turned in projects that failed most or all of the tests.
 
 <A NAME="File System Synchronization"></A>
 <HR SIZE="6">
-<A NAME="SEC86"></A>
+<A NAME="SEC85"></A>
 <H3> 5.3.5 Synchronization </H3>
-<!--docid::SEC86::-->
+<!--docid::SEC85::-->
 <P>
 
 The provided file system requires external synchronization, that is,
@@ -597,9 +597,9 @@ are accessed only by a single thread.
 
 <A NAME="Project 4 FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC87"></A>
+<A NAME="SEC86"></A>
 <H2> 5.4 FAQ </H2>
-<!--docid::SEC87::-->
+<!--docid::SEC86::-->
 <P>
 
 </P>
@@ -616,7 +616,7 @@ and deleted; a changed line counts as both an insertion and a deletion.
 This summary is relative to the Pintos base code, but the reference
 solution for project 4 is based on the reference solution to project 3.
 Thus, the reference solution runs with virtual memory enabled.
-See section <A HREF="pintos_4.html#SEC75">4.4 FAQ</A>, for the summary of project 3.
+See section <A HREF="pintos_4.html#SEC74">4.4 FAQ</A>, for the summary of project 3.
 </P>
 <P>
 
@@ -674,9 +674,9 @@ supports those that do.
 
 <A NAME="Indexed Files FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC88"></A>
+<A NAME="SEC87"></A>
 <H3> 5.4.1 Indexed Files FAQ </H3>
-<!--docid::SEC88::-->
+<!--docid::SEC87::-->
 <P>
 
 </P>
@@ -693,9 +693,9 @@ your inode organization.
 
 <A NAME="Subdirectories FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC89"></A>
+<A NAME="SEC88"></A>
 <H3> 5.4.2 Subdirectories FAQ </H3>
-<!--docid::SEC89::-->
+<!--docid::SEC88::-->
 <P>
 
 </P>
@@ -728,9 +728,9 @@ behavior, as well as simply rejecting a name that ends in a slash.
 
 <A NAME="Buffer Cache FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC90"></A>
+<A NAME="SEC89"></A>
 <H3> 5.4.3 Buffer Cache FAQ </H3>
-<!--docid::SEC90::-->
+<!--docid::SEC89::-->
 <P>
 
 </P>
@@ -779,8 +779,8 @@ You will need to change <CODE>inode_byte_to_sector()</CODE> to obtain the
 <A NAME="Reference Guide"></A>
 <HR SIZE="6">
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_5.html#SEC76"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_6.html#SEC91"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_5.html#SEC75"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_6.html#SEC90"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -789,7 +789,7 @@ You will need to change <CODE>inode_byte_to_sector()</CODE> to obtain the
 <BR>
 <FONT SIZE="-1">
 This document was generated
-by <I>Stephen Houser</I> on <I>August, 6 2018</I>
+by <I>Stephen Houser</I> on <I>August, 7 2018</I>
 using <A HREF="http://texi2html.cvshome.org"><I>texi2html</I></A>
 </FONT>
 

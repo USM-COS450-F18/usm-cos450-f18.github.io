@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
                       "http://www.w3.org/TR/html40/loose.dtd">
 <HTML>
-<!-- Created on August, 6 2018 by texi2html 1.66 -->
+<!-- Created on August, 7 2018 by texi2html 1.66 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -19,15 +19,15 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 <META NAME="Generator" CONTENT="texi2html 1.66">
-<LINK REL="stylesheet" HREF="pintos.css">
+ <LINK REL="stylesheet" HREF="../assets/cos450.css">
 </HEAD>
 
 <BODY >
 
-<A NAME="SEC132"></A>
+<A NAME="SEC131"></A>
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_6.html#SEC91"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_8.html#SEC139"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_6.html#SEC90"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_8.html#SEC138"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -36,7 +36,7 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 <HR SIZE=2>
 <H1> B. 4.4<ACRONYM>BSD</ACRONYM> Scheduler </H1>
-<!--docid::SEC132::-->
+<!--docid::SEC131::-->
 <P>
 
 The goal of a general-purpose scheduler is to balance threads' different
@@ -76,9 +76,9 @@ The 4.4<ACRONYM>BSD</ACRONYM> scheduler does not include priority donation.
 
 <A NAME="Thread Niceness"></A>
 <HR SIZE="6">
-<A NAME="SEC133"></A>
+<A NAME="SEC132"></A>
 <H2> B.1 Niceness </H2>
-<!--docid::SEC133::-->
+<!--docid::SEC132::-->
 <P>
 
 Thread priority is dynamically determined by the scheduler using a
@@ -114,16 +114,16 @@ use by test programs.  We have provided skeleton definitions for them in
 <DT><U>Function:</U> void <B>thread_set_nice</B> (int <VAR>new_nice</VAR>)
 <DD>Sets the current thread's <VAR>nice</VAR> value to <VAR>new_nice</VAR> and
 recalculates the thread's priority based on the new value
-(see section <A HREF="pintos_7.html#SEC134">B.2 Calculating Priority</A>).  If the running thread no longer has the
+(see section <A HREF="pintos_7.html#SEC133">B.2 Calculating Priority</A>).  If the running thread no longer has the
 highest priority, yields.
 </DL>
 <P>
 
 <A NAME="Calculating Priority"></A>
 <HR SIZE="6">
-<A NAME="SEC134"></A>
+<A NAME="SEC133"></A>
 <H2> B.2 Calculating Priority </H2>
-<!--docid::SEC134::-->
+<!--docid::SEC133::-->
 <P>
 
 Our scheduler has 64 priorities and thus 64 ready queues, numbered 0
@@ -164,9 +164,9 @@ ensure that it receives CPU time soon.
 
 <A NAME="Calculating recent_cpu"></A>
 <HR SIZE="6">
-<A NAME="SEC135"></A>
+<A NAME="SEC134"></A>
 <H2> B.3 Calculating <VAR>recent_cpu</VAR> </H2>
-<!--docid::SEC135::-->
+<!--docid::SEC134::-->
 <P>
 
 We wish <VAR>recent_cpu</VAR> to measure how much CPU time each process has
@@ -289,9 +289,9 @@ to the nearest integer.
 
 <A NAME="Calculating load_avg"></A>
 <HR SIZE="6">
-<A NAME="SEC136"></A>
+<A NAME="SEC135"></A>
 <H2> B.4 Calculating <VAR>load_avg</VAR> </H2>
-<!--docid::SEC136::-->
+<!--docid::SEC135::-->
 <P>
 
 Finally, <VAR>load_avg</VAR>, often known as the system load average,
@@ -339,9 +339,9 @@ nearest integer.
 
 <A NAME="4.4BSD Scheduler Summary"></A>
 <HR SIZE="6">
-<A NAME="SEC137"></A>
+<A NAME="SEC136"></A>
 <H2> B.5 Summary </H2>
-<!--docid::SEC137::-->
+<!--docid::SEC136::-->
 <P>
 
 The following formulas summarize the calculations required to implement the
@@ -395,9 +395,9 @@ thread).
 
 <A NAME="Fixed-Point Real Arithmetic"></A>
 <HR SIZE="6">
-<A NAME="SEC138"></A>
+<A NAME="SEC137"></A>
 <H2> B.6 Fixed-Point Real Arithmetic </H2>
-<!--docid::SEC138::-->
+<!--docid::SEC137::-->
 <P>
 
 In the formulas above, <VAR>priority</VAR>, <VAR>nice</VAR>, and
@@ -419,7 +419,7 @@ x represents the real number
 x/(2**14), where ** represents exponentiation.
 This is called a 17.14 fixed-point number representation, because there
 are 17 bits before the decimal point, 14 bits after it, and one sign
-bit.<A NAME="DOCF6" HREF="pintos_fot.html#FOOT6">(6)</A> A number in 17.14 format represents, at maximum, a
+bit.<A NAME="DOCF7" HREF="pintos_fot.html#FOOT7">(7)</A> A number in 17.14 format represents, at maximum, a
 value of (2**31 - 1)/(2**14) = approx. 131,071.999.
 </P>
 <P>
@@ -537,8 +537,8 @@ q</CODE>:
 <A NAME="Coding Standards"></A>
 <HR SIZE="6">
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_7.html#SEC132"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_8.html#SEC139"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_7.html#SEC131"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_8.html#SEC138"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -547,7 +547,7 @@ q</CODE>:
 <BR>
 <FONT SIZE="-1">
 This document was generated
-by <I>Stephen Houser</I> on <I>August, 6 2018</I>
+by <I>Stephen Houser</I> on <I>August, 7 2018</I>
 using <A HREF="http://texi2html.cvshome.org"><I>texi2html</I></A>
 </FONT>
 
