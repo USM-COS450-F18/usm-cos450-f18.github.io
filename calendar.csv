@@ -1,0 +1,17 @@
+Date,Date,Topic,Reading,Notes & Links
+Week 1,9/5,"Course Overview & Introduction, Pintos Introduction Session",Ch. 1,"[Syllabus](syllabus.html), [Pintos Documentation](pintos/pintos.html)"
+Week 2,9/12,"Operating System Structures, Project 1 - Threads Session",Ch. 2,Group Assignments Complete
+Week 3,9/19,Processes,Ch. 3,
+Week 4,9/26,Threads,Ch. 4,
+Week 5,10/3,Process Synchronization,Ch. 5,
+Week 6,10/10,CPU Scheduling,Ch. 6,[Project 1 - Threads Due](pintos/pintos_2.html)
+Week 7,10/17,Project 2 - User Programs Session,,[Midterm Exam (online)](https://bb.courses.maine.edu)
+Week 8,10/24,Main Memory,Ch. 7,
+Week 9,10/31,Virtual Memory,Ch. 8,
+Week 10,11/7,Mass Storage Systems,Ch. 9,
+Week 11,11/14,Project 3 - Virtual Memory Session,,[Project 2 - User Programs Due](pintos/pintos_3.html)
+Week 12,11/21,Thanksgiving Break,,
+Week 13,11/28,File System Interface & Implementation,Ch. 10 & 11,
+Week 14,12/5,I/O Systems,Ch. 12,
+Week 15,12/12,Protection & Security,Ch. 13 & 14,
+Finals,12/19,,,"[Project 3 - Virtual Memory Due](pintos/pintos_4.html), [Final Exam (online)](https://bb.courses.maine.edu)"
