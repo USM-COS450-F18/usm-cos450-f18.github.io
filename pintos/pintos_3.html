@@ -19,15 +19,15 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 <META NAME="Generator" CONTENT="texi2html 1.66">
-<LINK REL=\"stylesheet\" HREF=\"pintos.css\">
+<LINK REL="stylesheet" HREF="../assets/main.css"><LINK REL="stylesheet" HREF="../assets/cos450.css"><LINK REL="stylesheet" HREF="pintos.css">
 </HEAD>
 
 <BODY >
-<h1>USM COS 450 Operating Systems (Fall 2018)</h1><hr/>
-<A NAME="SEC32"></A>
+<header class="site-header" role="banner"><div class="wrapper"><a class="site-title" rel="author" href="/">USM COS 450 Operating Systems (Fall 2018)</a><nav class="site-nav"><div class="trigger"><a class="page-link" href="/">Home</a></div></nav></div></header><main class="page-content" aria-label="Content"><div class="wrapper">
+<A NAME="SEC33"></A>
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_2.html#SEC15"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_4.html#SEC53"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_2.html#SEC16"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_4.html#SEC54"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -36,7 +36,7 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 <HR SIZE=2>
 <H1> 3. Project 2: User Programs </H1>
-<!--docid::SEC32::-->
+<!--docid::SEC33::-->
 <P>
 
 Now that you've worked with Pintos and are becoming familiar with its
@@ -70,9 +70,9 @@ You might find it useful to go back and reread how to run the tests
 
 <A NAME="Project 2 Background"></A>
 <HR SIZE="6">
-<A NAME="SEC33"></A>
+<A NAME="SEC34"></A>
 <H2> 3.1 Background </H2>
-<!--docid::SEC33::-->
+<!--docid::SEC34::-->
 <P>
 
 Up to now, all of the code you have run under Pintos has been part
@@ -105,9 +105,9 @@ code however you wish.
 
 <A NAME="Project 2 Source Files"></A>
 <HR SIZE="6">
-<A NAME="SEC34"></A>
+<A NAME="SEC35"></A>
 <H3> 3.1.1 Source Files </H3>
-<!--docid::SEC34::-->
+<!--docid::SEC35::-->
 <P>
 
 The easiest way to get an overview of the programming you will be
@@ -130,7 +130,7 @@ where the bulk of your work will be:
 <DD>A simple manager for 80<VAR>x</VAR>86 hardware page tables.
 Although you probably won't want to modify this code for this project,
 you may want to call some of its functions.
-See section <A HREF="pintos_4.html#SEC59">4.1.2.3 Page Tables</A>, for more information.
+See section <A HREF="pintos_4.html#SEC60">4.1.2.3 Page Tables</A>, for more information.
 <P>
 
 </P>
@@ -147,7 +147,7 @@ else needed by system calls.
 <DT><Q><TT>exception.c</TT></Q>
 <DD><DT><Q><TT>exception.h</TT></Q>
 <DD>When a user process performs a privileged or prohibited operation, it
-traps into the kernel as an &quot;exception&quot; or &quot;fault.&quot;<A NAME="DOCF3" HREF="pintos_fot.html#FOOT3">(3)</A>  These files handle
+traps into the kernel as an &quot;exception&quot; or &quot;fault.&quot;<A NAME="DOCF2" HREF="pintos_fot.html#FOOT2">(2)</A>  These files handle
 exceptions.  Currently all exceptions simply print a message and
 terminate the process.  Some, but not all, solutions to project 2
 require modifying <CODE>page_fault()</CODE> in this file.
@@ -177,9 +177,9 @@ works.
 
 <A NAME="Using the File System"></A>
 <HR SIZE="6">
-<A NAME="SEC35"></A>
+<A NAME="SEC36"></A>
 <H3> 3.1.2 Using the File System </H3>
-<!--docid::SEC35::-->
+<!--docid::SEC36::-->
 <P>
 
 You will need to interface to the file system code for this project,
@@ -340,9 +340,9 @@ You can delete a file from the Pintos file system using the <CODE>rm
 
 <A NAME="How User Programs Work"></A>
 <HR SIZE="6">
-<A NAME="SEC36"></A>
+<A NAME="SEC37"></A>
 <H3> 3.1.3 How User Programs Work </H3>
-<!--docid::SEC36::-->
+<!--docid::SEC37::-->
 <P>
 
 Pintos can run normal C programs, as long as they fit into memory and use
@@ -384,9 +384,9 @@ which may happen occasionally while debugging.
 
 <A NAME="Virtual Memory Layout"></A>
 <HR SIZE="6">
-<A NAME="SEC37"></A>
+<A NAME="SEC38"></A>
 <H3> 3.1.4 Virtual Memory Layout </H3>
-<!--docid::SEC37::-->
+<!--docid::SEC38::-->
 <P>
 
 Virtual memory in Pintos is divided into two regions: user virtual
@@ -431,9 +431,9 @@ will cause a page fault.
 
 <A NAME="Typical Memory Layout"></A>
 <HR SIZE="6">
-<A NAME="SEC38"></A>
+<A NAME="SEC39"></A>
 <H4> 3.1.4.1 Typical Memory Layout </H4>
-<!--docid::SEC38::-->
+<!--docid::SEC39::-->
 <P>
 
 Conceptually, each process is
@@ -503,9 +503,9 @@ option.
 
 <A NAME="Accessing User Memory"></A>
 <HR SIZE="6">
-<A NAME="SEC39"></A>
+<A NAME="SEC40"></A>
 <H3> 3.1.5 Accessing User Memory </H3>
-<!--docid::SEC39::-->
+<!--docid::SEC40::-->
 <P>
 
 As part of a system
@@ -587,9 +587,9 @@ into <CODE>eip</CODE>.
 
 <A NAME="Project 2 Suggested Order of Implementation"></A>
 <HR SIZE="6">
-<A NAME="SEC40"></A>
+<A NAME="SEC41"></A>
 <H2> 3.2 Suggested Order of Implementation </H2>
-<!--docid::SEC40::-->
+<!--docid::SEC41::-->
 <P>
 
 We suggest first implementing the following, which can happen in
@@ -599,7 +599,7 @@ parallel:
 
 <UL>
 <LI>
-Argument passing (see section <A HREF="pintos_3.html#SEC44">3.3.3 Argument Passing</A>).  Every user program will
+Argument passing (see section <A HREF="pintos_3.html#SEC45">3.3.3 Argument Passing</A>).  Every user program will
 page fault immediately until argument passing is implemented.
 <P>
 
@@ -621,14 +621,14 @@ will probably fail.
 
 </P>
 <LI>
-User memory access (see section <A HREF="pintos_3.html#SEC39">3.1.5 Accessing User Memory</A>).  All system calls
+User memory access (see section <A HREF="pintos_3.html#SEC40">3.1.5 Accessing User Memory</A>).  All system calls
 need to read user memory.  Few system calls need to write to user
 memory.
 <P>
 
 </P>
 <LI>
-System call infrastructure (see section <A HREF="pintos_3.html#SEC45">3.3.4 System Calls</A>).  Implement enough
+System call infrastructure (see section <A HREF="pintos_3.html#SEC46">3.3.4 System Calls</A>).  Implement enough
 code to read the system call number from the user stack and dispatch to
 a handler based on it.
 <P>
@@ -667,31 +667,31 @@ to pass.
 
 <A NAME="Project 2 Requirements"></A>
 <HR SIZE="6">
-<A NAME="SEC41"></A>
+<A NAME="SEC42"></A>
 <H2> 3.3 Requirements </H2>
-<!--docid::SEC41::-->
+<!--docid::SEC42::-->
 <P>
 
 <A NAME="Project 2 Design Document"></A>
 <HR SIZE="6">
-<A NAME="SEC42"></A>
+<A NAME="SEC43"></A>
 <H3> 3.3.1 Design Document </H3>
-<!--docid::SEC42::-->
+<!--docid::SEC43::-->
 <P>
 
 Before you turn in your project, you must copy <A HREF="userprog.tmpl">the project 2 design document template</A> into your source tree under the
 name <Q><TT>pintos/src/userprog/DESIGNDOC</TT></Q> and fill it in.  We recommend
 that you read the design document template before you start working on
-the project.  See section <A HREF="pintos_9.html#SEC142">D. Project Documentation</A>, for a sample design document
+the project.  See section <A HREF="pintos_9.html#SEC143">D. Project Documentation</A>, for a sample design document
 that goes along with a fictitious project.
 </P>
 <P>
 
 <A NAME="Process Termination Messages"></A>
 <HR SIZE="6">
-<A NAME="SEC43"></A>
+<A NAME="SEC44"></A>
 <H3> 3.3.2 Process Termination Messages </H3>
-<!--docid::SEC43::-->
+<!--docid::SEC44::-->
 <P>
 
 Whenever a user process terminates, because it called <CODE>exit</CODE>
@@ -715,9 +715,9 @@ grading scripts and thus lower your score.
 
 <A NAME="Argument Passing"></A>
 <HR SIZE="6">
-<A NAME="SEC44"></A>
+<A NAME="SEC45"></A>
 <H3> 3.3.3 Argument Passing </H3>
-<!--docid::SEC44::-->
+<!--docid::SEC45::-->
 <P>
 
 Currently, <CODE>process_execute()</CODE> does not support passing arguments to
@@ -748,16 +748,16 @@ at the prompt).
 </P>
 <P>
 
-See section <A HREF="pintos_3.html#SEC51">3.5.1 Program Startup Details</A>, for information on exactly how you
+See section <A HREF="pintos_3.html#SEC52">3.5.1 Program Startup Details</A>, for information on exactly how you
 need to set up the stack.
 </P>
 <P>
 
 <A NAME="System Calls"></A>
 <HR SIZE="6">
-<A NAME="SEC45"></A>
+<A NAME="SEC46"></A>
 <H3> 3.3.4 System Calls </H3>
-<!--docid::SEC45::-->
+<!--docid::SEC46::-->
 <P>
 
 Implement the system call handler in <Q><TT>userprog/syscall.c</TT></Q>.  The
@@ -1034,7 +1034,7 @@ pointer, a pointer into kernel memory, or a block
 partially in one of those regions?  You should handle these cases by
 terminating the user process.  We recommend
 writing and testing this code before implementing any other system
-call functionality.  See section <A HREF="pintos_3.html#SEC39">3.1.5 Accessing User Memory</A>, for more information.
+call functionality.  See section <A HREF="pintos_3.html#SEC40">3.1.5 Accessing User Memory</A>, for more information.
 </P>
 <P>
 
@@ -1073,15 +1073,15 @@ value), returning an undefined value, or terminating the process.
 </P>
 <P>
 
-See section <A HREF="pintos_3.html#SEC52">3.5.2 System Call Details</A>, for details on how system calls work.
+See section <A HREF="pintos_3.html#SEC53">3.5.2 System Call Details</A>, for details on how system calls work.
 </P>
 <P>
 
 <A NAME="Denying Writes to Executables"></A>
 <HR SIZE="6">
-<A NAME="SEC46"></A>
+<A NAME="SEC47"></A>
 <H3> 3.3.5 Denying Writes to Executables </H3>
-<!--docid::SEC46::-->
+<!--docid::SEC47::-->
 <P>
 
 Add code to deny writes to files in use as executables.  Many OSes do
@@ -1102,9 +1102,9 @@ must keep it open as long as the process is still running.
 
 <A NAME="Project 2 FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC47"></A>
+<A NAME="SEC48"></A>
 <H2> 3.4 FAQ </H2>
-<!--docid::SEC47::-->
+<!--docid::SEC48::-->
 <P>
 
 </P>
@@ -1199,7 +1199,7 @@ Every reasonable program tries to make at least one system call
 <CODE>printf()</CODE> invokes the <CODE>write</CODE> system call.  The default system
 call handler just prints <Q><SAMP>system call!</SAMP></Q> and terminates the program.
 Until then, you can use <CODE>hex_dump()</CODE> to convince yourself that
-argument passing is implemented correctly (see section <A HREF="pintos_3.html#SEC51">3.5.1 Program Startup Details</A>).
+argument passing is implemented correctly (see section <A HREF="pintos_3.html#SEC52">3.5.1 Program Startup Details</A>).
 </P>
 <P>
 
@@ -1212,7 +1212,7 @@ The <CODE>objdump</CODE> (80<VAR>x</VAR>86) or <CODE>i386-elf-objdump</CODE>
 programs or object files.  Invoke it as <CODE>objdump -d
 <VAR>file</VAR></CODE>.  You can use GDB's
 <CODE>disassemble</CODE> command to disassemble individual functions
-(see section <A HREF="pintos_10.html#SEC151">E.5 GDB</A>).
+(see section <A HREF="pintos_10.html#SEC152">E.5 GDB</A>).
 </P>
 <P>
 
@@ -1249,7 +1249,7 @@ Modify <Q><TT>src/examples/Makefile</TT></Q>, then run <CODE>make</CODE>.
 <DT>Can I run user programs under a debugger?
 <DD><P>
 
-Yes, with some limitations.  See section <A HREF="pintos_10.html#SEC151">E.5 GDB</A>.
+Yes, with some limitations.  See section <A HREF="pintos_10.html#SEC152">E.5 GDB</A>.
 </P>
 <P>
 
@@ -1279,9 +1279,9 @@ same process, or you can use a more complex mapping.  It's up to you.
 
 <A NAME="Argument Passing FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC48"></A>
+<A NAME="SEC49"></A>
 <H3> 3.4.1 Argument Passing FAQ </H3>
-<!--docid::SEC48::-->
+<!--docid::SEC49::-->
 <P>
 
 </P>
@@ -1309,9 +1309,9 @@ simply via recompilation.
 
 <A NAME="System Calls FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC49"></A>
+<A NAME="SEC50"></A>
 <H3> 3.4.2 System Calls FAQ </H3>
-<!--docid::SEC49::-->
+<!--docid::SEC50::-->
 <P>
 
 </P>
@@ -1373,16 +1373,16 @@ way through the process (e.g. where it runs out of memory in the
 from the <CODE>exec</CODE> system call until it is established whether the
 load was successful or not.  The child must communicate this
 information to its parent using appropriate synchronization, such as a
-semaphore (see section <A HREF="pintos_6.html#SEC102">A.3.2 Semaphores</A>), to ensure that the information is
+semaphore (see section <A HREF="pintos_6.html#SEC103">A.3.2 Semaphores</A>), to ensure that the information is
 communicated without race conditions.
 </DL>
 <P>
 
 <A NAME="80x86 Calling Convention"></A>
 <HR SIZE="6">
-<A NAME="SEC50"></A>
+<A NAME="SEC51"></A>
 <H2> 3.5 80<VAR>x</VAR>86 Calling Convention </H2>
-<!--docid::SEC50::-->
+<!--docid::SEC51::-->
 <P>
 
 This section summarizes important points of the convention used for
@@ -1460,9 +1460,9 @@ stack pointer --&gt; 0xbffffe70 | return address |
 
 <A NAME="Program Startup Details"></A>
 <HR SIZE="6">
-<A NAME="SEC51"></A>
+<A NAME="SEC52"></A>
 <H3> 3.5.1 Program Startup Details </H3>
-<!--docid::SEC51::-->
+<!--docid::SEC52::-->
 <P>
 
 The Pintos C library for user programs designates <CODE>_start()</CODE>, in
@@ -1481,7 +1481,7 @@ _start (int argc, char *argv[])
 
 The kernel must put the arguments for the initial function on the stack
 before it allows the user program to begin executing.  The arguments are
-passed in the same way as the normal calling convention (see section <A HREF="pintos_3.html#SEC50">3.5 80<VAR>x</VAR>86 Calling Convention</A>).
+passed in the same way as the normal calling convention (see section <A HREF="pintos_3.html#SEC51">3.5 80<VAR>x</VAR>86 Calling Convention</A>).
 </P>
 <P>
 
@@ -1576,20 +1576,20 @@ bffffff0  6e 2f 6c 73 00 2d 6c 00-66 6f 6f 00 62 61 72 00 |n/ls.-l.foo.bar.|
 
 <A NAME="System Call Details"></A>
 <HR SIZE="6">
-<A NAME="SEC52"></A>
+<A NAME="SEC53"></A>
 <H3> 3.5.2 System Call Details </H3>
-<!--docid::SEC52::-->
+<!--docid::SEC53::-->
 <P>
 
 The first project already dealt with one way that the operating system
 can regain control from a user program: interrupts from timers and I/O
 devices.  These are &quot;external&quot; interrupts, because they are caused
-by entities outside the CPU (see section <A HREF="pintos_6.html#SEC110">A.4.3 External Interrupt Handling</A>).
+by entities outside the CPU (see section <A HREF="pintos_6.html#SEC111">A.4.3 External Interrupt Handling</A>).
 </P>
 <P>
 
 The operating system also deals with software exceptions, which are
-events that occur in program code (see section <A HREF="pintos_6.html#SEC109">A.4.2 Internal Interrupt Handling</A>).  These can be errors such as a page fault or division by
+events that occur in program code (see section <A HREF="pintos_6.html#SEC110">A.4.2 Internal Interrupt Handling</A>).  These can be errors such as a page fault or division by
 zero.  Exceptions are also the means by which a user program
 can request services (&quot;system calls&quot;) from the operating system.
 </P>
@@ -1601,7 +1601,7 @@ is handled in the same way as other software exceptions.  In Pintos,
 user programs invoke <Q><SAMP>int $0x30</SAMP></Q> to make a system call.  The
 system call number and any additional arguments are expected to be
 pushed on the stack in the normal fashion before invoking the
-interrupt (see section <A HREF="pintos_3.html#SEC50">3.5 80<VAR>x</VAR>86 Calling Convention</A>).
+interrupt (see section <A HREF="pintos_3.html#SEC51">3.5 80<VAR>x</VAR>86 Calling Convention</A>).
 </P>
 <P>
 
@@ -1629,8 +1629,8 @@ retrieving each system call's arguments from the stack.
 <A NAME="Project 3--Virtual Memory"></A>
 <HR SIZE="6">
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_3.html#SEC32"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_4.html#SEC53"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_3.html#SEC33"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_4.html#SEC54"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -1642,6 +1642,6 @@ This document was generated
 by <I>Stephen Houser</I> on <I>August, 7 2018</I>
 using <A HREF="http://texi2html.cvshome.org"><I>texi2html</I></A>
 </FONT>
-
+</div></main>
 </BODY>
 </HTML>

@@ -19,15 +19,15 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 <META NAME="Generator" CONTENT="texi2html 1.66">
-<LINK REL=\"stylesheet\" HREF=\"pintos.css\">
+<LINK REL="stylesheet" HREF="../assets/main.css"><LINK REL="stylesheet" HREF="../assets/cos450.css"><LINK REL="stylesheet" HREF="pintos.css">
 </HEAD>
 
 <BODY >
-<h1>USM COS 450 Operating Systems (Fall 2018)</h1><hr/>
-<A NAME="SEC90"></A>
+<header class="site-header" role="banner"><div class="wrapper"><a class="site-title" rel="author" href="/">USM COS 450 Operating Systems (Fall 2018)</a><nav class="site-nav"><div class="trigger"><a class="page-link" href="/">Home</a></div></nav></div></header><main class="page-content" aria-label="Content"><div class="wrapper">
+<A NAME="SEC91"></A>
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_5.html#SEC75"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_7.html#SEC131"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_5.html#SEC76"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_7.html#SEC132"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -36,7 +36,7 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 <HR SIZE=2>
 <H1> A. Reference Guide </H1>
-<!--docid::SEC90::-->
+<!--docid::SEC91::-->
 <P>
 
 This chapter is a reference for the Pintos code.  The reference guide
@@ -48,15 +48,15 @@ project where it becomes important.
 <P>
 
 We recommend using &quot;tags&quot; to follow along with references to function
-and variable names (see section <A HREF="pintos_11.html#SEC159">F.1 Tags</A>).
+and variable names (see section <A HREF="pintos_11.html#SEC160">F.1 Tags</A>).
 </P>
 <P>
 
 <A NAME="Pintos Loading"></A>
 <HR SIZE="6">
-<A NAME="SEC91"></A>
+<A NAME="SEC92"></A>
 <H2> A.1 Loading </H2>
-<!--docid::SEC91::-->
+<!--docid::SEC92::-->
 <P>
 
 This section covers the Pintos loader and basic kernel
@@ -66,9 +66,9 @@ initialization.
 
 <A NAME="Pintos Loader"></A>
 <HR SIZE="6">
-<A NAME="SEC92"></A>
+<A NAME="SEC93"></A>
 <H3> A.1.1 The Loader </H3>
-<!--docid::SEC92::-->
+<!--docid::SEC93::-->
 <P>
 
 The first part of Pintos that runs is the loader, in
@@ -133,9 +133,9 @@ and effective.
 
 <A NAME="Low-Level Kernel Initialization"></A>
 <HR SIZE="6">
-<A NAME="SEC93"></A>
+<A NAME="SEC94"></A>
 <H3> A.1.2 Low-Level Kernel Initialization </H3>
-<!--docid::SEC93::-->
+<!--docid::SEC94::-->
 <P>
 
 The loader's last action is to transfer control to the kernel's entry
@@ -187,9 +187,9 @@ mode, so we disable interrupts.  The final step is to call <CODE>main()</CODE>.
 
 <A NAME="High-Level Kernel Initialization"></A>
 <HR SIZE="6">
-<A NAME="SEC94"></A>
+<A NAME="SEC95"></A>
 <H3> A.1.3 High-Level Kernel Initialization </H3>
-<!--docid::SEC94::-->
+<!--docid::SEC95::-->
 <P>
 
 The kernel proper starts with the <CODE>main()</CODE> function.  The
@@ -238,11 +238,11 @@ and print a startup message to the console.
 
 The next block of functions we call initializes the kernel's memory
 system.  <CODE>palloc_init()</CODE> sets up the kernel page allocator, which
-doles out memory one or more pages at a time (see section <A HREF="pintos_6.html#SEC112">A.5.1 Page Allocator</A>).
+doles out memory one or more pages at a time (see section <A HREF="pintos_6.html#SEC113">A.5.1 Page Allocator</A>).
 <CODE>malloc_init()</CODE> sets
 up the allocator that handles allocations of arbitrary-size blocks of
-memory (see section <A HREF="pintos_6.html#SEC113">A.5.2 Block Allocator</A>).
-<CODE>paging_init()</CODE> sets up a page table for the kernel (see section <A HREF="pintos_6.html#SEC115">A.7 Page Table</A>).
+memory (see section <A HREF="pintos_6.html#SEC114">A.5.2 Block Allocator</A>).
+<CODE>paging_init()</CODE> sets up a page table for the kernel (see section <A HREF="pintos_6.html#SEC116">A.7 Page Table</A>).
 </P>
 <P>
 
@@ -253,7 +253,7 @@ In projects 2 and later, <CODE>main()</CODE> also calls <CODE>tss_init()</CODE> 
 
 The next set of calls initializes the interrupt system.
 <CODE>intr_init()</CODE> sets up the CPU's <EM>interrupt descriptor table</EM>
-(IDT) to ready it for interrupt handling (see section <A HREF="pintos_6.html#SEC108">A.4.1 Interrupt Infrastructure</A>), then <CODE>timer_init()</CODE> and <CODE>kbd_init()</CODE> prepare for
+(IDT) to ready it for interrupt handling (see section <A HREF="pintos_6.html#SEC109">A.4.1 Interrupt Infrastructure</A>), then <CODE>timer_init()</CODE> and <CODE>kbd_init()</CODE> prepare for
 handling timer interrupts and keyboard interrupts, respectively. 
 <CODE>input_init()</CODE> sets up to merge serial and keyboard input into one
 stream.  In
@@ -297,9 +297,9 @@ threads to continue running.
 
 <A NAME="Physical Memory Map"></A>
 <HR SIZE="6">
-<A NAME="SEC95"></A>
+<A NAME="SEC96"></A>
 <H3> A.1.4 Physical Memory Map </H3>
-<!--docid::SEC95::-->
+<!--docid::SEC96::-->
 <P>
 
 </P>
@@ -342,16 +342,16 @@ kernel thread.
 
 <A NAME="Threads"></A>
 <HR SIZE="6">
-<A NAME="SEC96"></A>
+<A NAME="SEC97"></A>
 <H2> A.2 Threads </H2>
-<!--docid::SEC96::-->
+<!--docid::SEC97::-->
 <P>
 
 <A NAME="struct thread"></A>
 <HR SIZE="6">
-<A NAME="SEC97"></A>
+<A NAME="SEC98"></A>
 <H3> A.2.1 <CODE>struct thread</CODE> </H3>
-<!--docid::SEC97::-->
+<!--docid::SEC98::-->
 <P>
 
 The main Pintos data structure for threads is <CODE>struct thread</CODE>,
@@ -408,7 +408,7 @@ Second, kernel stacks must not be allowed to grow too large.  If a stack
 overflows, it will corrupt the thread state.  Thus, kernel functions
 should not allocate large structures or arrays as non-static local
 variables.  Use dynamic allocation with <CODE>malloc()</CODE> or
-<CODE>palloc_get_page()</CODE> instead (see section <A HREF="pintos_6.html#SEC111">A.5 Memory Allocation</A>).
+<CODE>palloc_get_page()</CODE> instead (see section <A HREF="pintos_6.html#SEC112">A.5 Memory Allocation</A>).
 </P>
 </DL>
 <P>
@@ -463,11 +463,11 @@ available, an interrupt to be invoked.  The thread won't be scheduled
 again until it transitions to the <CODE>THREAD_READY</CODE> state with a
 call to <CODE>thread_unblock()</CODE>.  This is most conveniently done
 indirectly, using one of the Pintos synchronization primitives that
-block and unblock threads automatically (see section <A HREF="pintos_6.html#SEC100">A.3 Synchronization</A>).
+block and unblock threads automatically (see section <A HREF="pintos_6.html#SEC101">A.3 Synchronization</A>).
 <P>
 
 There is no <I>a priori</I> way to tell what a blocked thread is waiting
-for, but a backtrace can help (see section <A HREF="pintos_10.html#SEC149">E.4 Backtraces</A>).
+for, but a backtrace can help (see section <A HREF="pintos_10.html#SEC150">E.4 Backtraces</A>).
 </P>
 </DL>
 <P>
@@ -506,7 +506,7 @@ other registers that must be saved are saved on the stack.
 When an interrupt occurs, whether in the kernel or a user program, an
 <CODE>struct intr_frame</CODE> is pushed onto the stack.  When the interrupt occurs
 in a user program, the <CODE>struct intr_frame</CODE> is always at the very top of
-the page.  See section <A HREF="pintos_6.html#SEC107">A.4 Interrupt Handling</A>, for more information.
+the page.  See section <A HREF="pintos_6.html#SEC108">A.4 Interrupt Handling</A>, for more information.
 </P>
 </DL>
 <P>
@@ -519,7 +519,7 @@ the page.  See section <A HREF="pintos_6.html#SEC107">A.4 Interrupt Handling</A>
 (63).  Lower numbers correspond to lower priorities, so that
 priority 0 is the lowest priority and priority 63 is the highest.
 Pintos as provided ignores thread priorities, but you will implement
-priority scheduling in project 1 (see section <A HREF="pintos_2.html#SEC26">2.2.3 Priority Scheduling</A>).
+priority scheduling in project 1 (see section <A HREF="pintos_2.html#SEC27">2.2.3 Priority Scheduling</A>).
 </DL>
 <P>
 
@@ -550,7 +550,7 @@ versa.
 </P>
 <DL>
 <DT><U>Member of <CODE>struct thread</CODE>:</U> uint32_t *<B>pagedir</B>
-<DD>Only present in project 2 and later.  See section <A HREF="pintos_4.html#SEC59">4.1.2.3 Page Tables</A>.
+<DD>Only present in project 2 and later.  See section <A HREF="pintos_4.html#SEC60">4.1.2.3 Page Tables</A>.
 </DL>
 <P>
 
@@ -570,9 +570,9 @@ the end.
 
 <A NAME="Thread Functions"></A>
 <HR SIZE="6">
-<A NAME="SEC98"></A>
+<A NAME="SEC99"></A>
 <H3> A.2.2 Thread Functions </H3>
-<!--docid::SEC98::-->
+<!--docid::SEC99::-->
 <P>
 
 <Q><TT>threads/thread.c</TT></Q> implements several public functions for thread
@@ -609,7 +609,7 @@ called early in Pintos initialization.
 thread, that is, the thread that is scheduled when no other thread is
 ready.  Then enables interrupts, which as a side effect enables the
 scheduler because the scheduler runs on return from the timer interrupt, using
-<CODE>intr_yield_on_return()</CODE> (see section <A HREF="pintos_6.html#SEC110">A.4.3 External Interrupt Handling</A>).
+<CODE>intr_yield_on_return()</CODE> (see section <A HREF="pintos_6.html#SEC111">A.4.3 External Interrupt Handling</A>).
 </DL>
 <P>
 
@@ -641,7 +641,7 @@ thread statistics and triggers the scheduler when a time slice expires.
 
 <CODE>thread_create()</CODE> allocates a page for the thread's
 <CODE>struct thread</CODE> and stack and initializes its members, then it sets
-up a set of fake stack frames for it (see section <A HREF="pintos_6.html#SEC99">A.2.3 Thread Switching</A>).  The
+up a set of fake stack frames for it (see section <A HREF="pintos_6.html#SEC100">A.2.3 Thread Switching</A>).  The
 thread is initialized in the blocked state, then unblocked just before
 returning, which allows the new thread to
 be scheduled (see  <A HREF="pintos_6.html#Thread States">Thread States</A>).
@@ -667,7 +667,7 @@ state (see  <A HREF="pintos_6.html#Thread States">Thread States</A>).  The threa
 <CODE>thread_unblock()</CODE> is
 called on it, so you'd better have some way arranged for that to happen.
 Because <CODE>thread_block()</CODE> is so low-level, you should prefer to use
-one of the synchronization primitives instead (see section <A HREF="pintos_6.html#SEC100">A.3 Synchronization</A>).
+one of the synchronization primitives instead (see section <A HREF="pintos_6.html#SEC101">A.3 Synchronization</A>).
 </DL>
 <P>
 
@@ -714,7 +714,7 @@ the thread is waiting on becomes available.
 <DL>
 <DT><U>Function:</U> void <B>thread_exit</B> (void) <CODE>NO_RETURN</CODE>
 <DD>Causes the current thread to exit.  Never returns, hence
-<CODE>NO_RETURN</CODE> (see section <A HREF="pintos_10.html#SEC148">E.3 Function and Parameter Attributes</A>).
+<CODE>NO_RETURN</CODE> (see section <A HREF="pintos_10.html#SEC149">E.3 Function and Parameter Attributes</A>).
 </DL>
 <P>
 
@@ -753,7 +753,7 @@ given by <CODE>thread_action_func()</CODE>:
 <DT><U>Function:</U> int <B>thread_get_priority</B> (void)
 <DD><A NAME="IDX54"></A>
 <DT><U>Function:</U> void <B>thread_set_priority</B> (int <VAR>new_priority</VAR>)
-<DD>Stub to set and get thread priority.  See section <A HREF="pintos_2.html#SEC26">2.2.3 Priority Scheduling</A>.
+<DD>Stub to set and get thread priority.  See section <A HREF="pintos_2.html#SEC27">2.2.3 Priority Scheduling</A>.
 </DL>
 <P>
 
@@ -767,15 +767,15 @@ given by <CODE>thread_action_func()</CODE>:
 <DT><U>Function:</U> int <B>thread_get_recent_cpu</B> (void)
 <DD><A NAME="IDX58"></A>
 <DT><U>Function:</U> int <B>thread_get_load_avg</B> (void)
-<DD>Stubs for the advanced scheduler.  See section <A HREF="pintos_7.html#SEC131">B. 4.4<ACRONYM>BSD</ACRONYM> Scheduler</A>.
+<DD>Stubs for the advanced scheduler.  See section <A HREF="pintos_7.html#SEC132">B. 4.4<ACRONYM>BSD</ACRONYM> Scheduler</A>.
 </DL>
 <P>
 
 <A NAME="Thread Switching"></A>
 <HR SIZE="6">
-<A NAME="SEC99"></A>
+<A NAME="SEC100"></A>
 <H3> A.2.3 Thread Switching </H3>
-<!--docid::SEC99::-->
+<!--docid::SEC100::-->
 <P>
 
 <CODE>schedule()</CODE> is responsible for switching threads.  It
@@ -838,7 +838,7 @@ its <CODE>eip</CODE> member, the return address.  We point <CODE>eip</CODE> to
 <LI>
 The next fake stack frame is for <CODE>switch_entry()</CODE>, an assembly
 language routine in <Q><TT>threads/switch.S</TT></Q> that adjusts the stack
-pointer,<A NAME="DOCF5" HREF="pintos_fot.html#FOOT5">(5)</A>
+pointer,<A NAME="DOCF4" HREF="pintos_fot.html#FOOT4">(4)</A>
 calls <CODE>thread_schedule_tail()</CODE> (this special case is why
 <CODE>thread_schedule_tail()</CODE> is separate from <CODE>schedule()</CODE>), and returns.
 We fill in its stack frame so that it returns into
@@ -856,9 +856,9 @@ interrupts and calls the thread's function (the function passed to
 
 <A NAME="Synchronization"></A>
 <HR SIZE="6">
-<A NAME="SEC100"></A>
+<A NAME="SEC101"></A>
 <H2> A.3 Synchronization </H2>
-<!--docid::SEC100::-->
+<!--docid::SEC101::-->
 <P>
 
 If sharing of resources between threads is not handled in a careful,
@@ -871,9 +871,9 @@ synchronization primitives to help out.
 
 <A NAME="Disabling Interrupts"></A>
 <HR SIZE="6">
-<A NAME="SEC101"></A>
+<A NAME="SEC102"></A>
 <H3> A.3.1 Disabling Interrupts </H3>
-<!--docid::SEC101::-->
+<!--docid::SEC102::-->
 <P>
 
 The crudest way to do synchronization is to disable interrupts, that
@@ -901,7 +901,7 @@ of the time you should use the other synchronization primitives
 described in the following sections.  The main reason to disable
 interrupts is to synchronize kernel threads with external interrupt
 handlers, which cannot sleep and thus cannot use most other forms of
-synchronization (see section <A HREF="pintos_6.html#SEC110">A.4.3 External Interrupt Handling</A>).
+synchronization (see section <A HREF="pintos_6.html#SEC111">A.4.3 External Interrupt Handling</A>).
 </P>
 <P>
 
@@ -961,9 +961,9 @@ previous interrupt state.
 
 <A NAME="Semaphores"></A>
 <HR SIZE="6">
-<A NAME="SEC102"></A>
+<A NAME="SEC103"></A>
 <H3> A.3.2 Semaphores </H3>
-<!--docid::SEC102::-->
+<!--docid::SEC103::-->
 <P>
 
 A <EM>semaphore</EM> is a nonnegative integer together with two operators
@@ -1068,13 +1068,13 @@ incrementing its value.  If any threads are waiting on
 <P>
 
 Unlike most synchronization primitives, <CODE>sema_up()</CODE> may be called
-inside an external interrupt handler (see section <A HREF="pintos_6.html#SEC110">A.4.3 External Interrupt Handling</A>).
+inside an external interrupt handler (see section <A HREF="pintos_6.html#SEC111">A.4.3 External Interrupt Handling</A>).
 </P>
 </DL>
 <P>
 
 Semaphores are internally built out of disabling interrupt
-(see section <A HREF="pintos_6.html#SEC101">A.3.1 Disabling Interrupts</A>) and thread blocking and unblocking
+(see section <A HREF="pintos_6.html#SEC102">A.3.1 Disabling Interrupts</A>) and thread blocking and unblocking
 (<CODE>thread_block()</CODE> and <CODE>thread_unblock()</CODE>).  Each semaphore maintains
 a list of waiting threads, using the linked list
 implementation in <Q><TT>lib/kernel/list.c</TT></Q>.
@@ -1083,13 +1083,13 @@ implementation in <Q><TT>lib/kernel/list.c</TT></Q>.
 
 <A NAME="Locks"></A>
 <HR SIZE="6">
-<A NAME="SEC103"></A>
+<A NAME="SEC104"></A>
 <H3> A.3.3 Locks </H3>
-<!--docid::SEC103::-->
+<!--docid::SEC104::-->
 <P>
 
 A <EM>lock</EM> is like a semaphore with an initial value of 1
-(see section <A HREF="pintos_6.html#SEC102">A.3.2 Semaphores</A>).  A lock's equivalent of &quot;up&quot; is called
+(see section <A HREF="pintos_6.html#SEC103">A.3.2 Semaphores</A>).  A lock's equivalent of &quot;up&quot; is called
 &quot;release&quot;, and the &quot;down&quot; operation is called &quot;acquire&quot;.
 </P>
 <P>
@@ -1168,9 +1168,9 @@ because the answer could change before the caller could act on it.
 
 <A NAME="Monitors"></A>
 <HR SIZE="6">
-<A NAME="SEC104"></A>
+<A NAME="SEC105"></A>
 <H3> A.3.4 Monitors </H3>
-<!--docid::SEC104::-->
+<!--docid::SEC105::-->
 <P>
 
 A <EM>monitor</EM> is a higher-level form of synchronization than a
@@ -1263,9 +1263,9 @@ function.
 <P>
 
 <HR SIZE="6">
-<A NAME="SEC105"></A>
+<A NAME="SEC106"></A>
 <H4> A.3.4.1 Monitor Example </H4>
-<!--docid::SEC105::-->
+<!--docid::SEC106::-->
 <P>
 
 The classical example of a monitor is handling a buffer into which one
@@ -1318,9 +1318,9 @@ the first time <CODE>head</CODE> wraps around to 0.  In practice,
 
 <A NAME="Optimization Barriers"></A>
 <HR SIZE="6">
-<A NAME="SEC106"></A>
+<A NAME="SEC107"></A>
 <H3> A.3.5 Optimization Barriers </H3>
-<!--docid::SEC106::-->
+<!--docid::SEC107::-->
 <P>
 
 An <EM>optimization barrier</EM> is a special statement that prevents the
@@ -1453,9 +1453,9 @@ file before performing optimization.
 
 <A NAME="Interrupt Handling"></A>
 <HR SIZE="6">
-<A NAME="SEC107"></A>
+<A NAME="SEC108"></A>
 <H2> A.4 Interrupt Handling </H2>
-<!--docid::SEC107::-->
+<!--docid::SEC108::-->
 <P>
 
 An <EM>interrupt</EM> notifies the CPU of some event.  Much of the work
@@ -1483,7 +1483,7 @@ timer, keyboard, serial ports, and disks.  External interrupts are
 <EM>asynchronous</EM>, meaning that their delivery is not
 synchronized with instruction execution.  Handling of external interrupts
 can be postponed with <CODE>intr_disable()</CODE> and related functions
-(see section <A HREF="pintos_6.html#SEC101">A.3.1 Disabling Interrupts</A>).
+(see section <A HREF="pintos_6.html#SEC102">A.3.1 Disabling Interrupts</A>).
 </UL>
 <P>
 
@@ -1504,9 +1504,9 @@ also want to skim chapter 5, &quot;Interrupt and Exception Handling,&quot; in
 
 <A NAME="Interrupt Infrastructure"></A>
 <HR SIZE="6">
-<A NAME="SEC108"></A>
+<A NAME="SEC109"></A>
 <H3> A.4.1 Interrupt Infrastructure </H3>
-<!--docid::SEC108::-->
+<!--docid::SEC109::-->
 <P>
 
 When an interrupt occurs, the CPU saves
@@ -1535,7 +1535,7 @@ The main job of <CODE>intr_handler()</CODE> is to call the function
 registered for handling the particular interrupt.  (If no
 function is registered, it dumps some information to the console and
 panics.)  It also does some extra processing for external
-interrupts (see section <A HREF="pintos_6.html#SEC110">A.4.3 External Interrupt Handling</A>).
+interrupts (see section <A HREF="pintos_6.html#SEC111">A.4.3 External Interrupt Handling</A>).
 </P>
 <P>
 
@@ -1643,9 +1643,9 @@ thread.
 
 <A NAME="Internal Interrupt Handling"></A>
 <HR SIZE="6">
-<A NAME="SEC109"></A>
+<A NAME="SEC110"></A>
 <H3> A.4.2 Internal Interrupt Handling </H3>
-<!--docid::SEC109::-->
+<!--docid::SEC110::-->
 <P>
 
 Internal interrupts are caused directly by CPU instructions executed by
@@ -1659,7 +1659,7 @@ In an internal interrupt's handler, it can make sense to examine the
 it.  When the interrupt returns, modifications in <CODE>struct intr_frame</CODE>
 become changes to the calling thread or process's state.  For example,
 the Pintos system call handler returns a value to the user program by
-modifying the saved EAX register (see section <A HREF="pintos_3.html#SEC52">3.5.2 System Call Details</A>).
+modifying the saved EAX register (see section <A HREF="pintos_3.html#SEC53">3.5.2 System Call Details</A>).
 </P>
 <P>
 
@@ -1667,14 +1667,14 @@ There are no special restrictions on what an internal interrupt
 handler can or can't do.  Generally they should run with interrupts
 enabled, just like other code, and so they can be preempted by other
 kernel threads.  Thus, they do need to synchronize with other threads
-on shared data and other resources (see section <A HREF="pintos_6.html#SEC100">A.3 Synchronization</A>).
+on shared data and other resources (see section <A HREF="pintos_6.html#SEC101">A.3 Synchronization</A>).
 </P>
 <P>
 
 Internal interrupt handlers can be invoked recursively.  For example,
 the system call handler might cause a page fault while attempting to
 read user memory.  Deep recursion would risk overflowing the limited
-kernel stack (see section <A HREF="pintos_6.html#SEC97">A.2.1 <CODE>struct thread</CODE></A>), but should be unnecessary.
+kernel stack (see section <A HREF="pintos_6.html#SEC98">A.2.1 <CODE>struct thread</CODE></A>), but should be unnecessary.
 </P>
 <P>
 
@@ -1712,9 +1712,9 @@ regardless of <VAR>dpl</VAR>.
 
 <A NAME="External Interrupt Handling"></A>
 <HR SIZE="6">
-<A NAME="SEC110"></A>
+<A NAME="SEC111"></A>
 <H3> A.4.3 External Interrupt Handling </H3>
-<!--docid::SEC110::-->
+<!--docid::SEC111::-->
 <P>
 
 External interrupts are caused by events outside the CPU.
@@ -1735,7 +1735,7 @@ modifying it is a recipe for disaster.
 Only one external interrupt may be processed at a time.  Neither
 internal nor external interrupt may nest within an external interrupt
 handler.  Thus, an external interrupt's handler must run with interrupts
-disabled (see section <A HREF="pintos_6.html#SEC101">A.3.1 Disabling Interrupts</A>).
+disabled (see section <A HREF="pintos_6.html#SEC102">A.3.1 Disabling Interrupts</A>).
 </P>
 <P>
 
@@ -1808,9 +1808,9 @@ cause a new thread to be scheduled.
 
 <A NAME="Memory Allocation"></A>
 <HR SIZE="6">
-<A NAME="SEC111"></A>
+<A NAME="SEC112"></A>
 <H2> A.5 Memory Allocation </H2>
-<!--docid::SEC111::-->
+<!--docid::SEC112::-->
 <P>
 
 Pintos contains two memory allocators, one that allocates memory in
@@ -1820,9 +1820,9 @@ units of a page, and one that can allocate blocks of any size.
 
 <A NAME="Page Allocator"></A>
 <HR SIZE="6">
-<A NAME="SEC112"></A>
+<A NAME="SEC113"></A>
 <H3> A.5.1 Page Allocator </H3>
-<!--docid::SEC112::-->
+<!--docid::SEC113::-->
 <P>
 
 The page allocator declared in <Q><TT>threads/palloc.h</TT></Q> allocates
@@ -1872,7 +1872,7 @@ freed.
 <P>
 
 When a page is freed, all of its bytes are cleared to <TT>0xcc</TT>, as
-a debugging aid (see section <A HREF="pintos_10.html#SEC157">E.8 Tips</A>).
+a debugging aid (see section <A HREF="pintos_10.html#SEC158">E.8 Tips</A>).
 </P>
 <P>
 
@@ -1937,9 +1937,9 @@ starting at <VAR>pages</VAR>.  All of the pages must have been obtained using
 
 <A NAME="Block Allocator"></A>
 <HR SIZE="6">
-<A NAME="SEC113"></A>
+<A NAME="SEC114"></A>
 <H3> A.5.2 Block Allocator </H3>
-<!--docid::SEC113::-->
+<!--docid::SEC114::-->
 <P>
 
 The block allocator, declared in <Q><TT>threads/malloc.h</TT></Q>, can allocate
@@ -1984,7 +1984,7 @@ those over approximately 4 kB each.
 <P>
 
 When a block is freed, all of its bytes are cleared to <TT>0xcc</TT>, as
-a debugging aid (see section <A HREF="pintos_10.html#SEC157">E.8 Tips</A>).
+a debugging aid (see section <A HREF="pintos_10.html#SEC158">E.8 Tips</A>).
 </P>
 <P>
 
@@ -2045,9 +2045,9 @@ with <VAR>new_size</VAR> zero is equivalent to <CODE>free()</CODE>.
 
 <A NAME="Virtual Addresses"></A>
 <HR SIZE="6">
-<A NAME="SEC114"></A>
+<A NAME="SEC115"></A>
 <H2> A.6 Virtual Addresses </H2>
-<!--docid::SEC114::-->
+<!--docid::SEC115::-->
 <P>
 
 A 32-bit virtual address can be divided into a 20-bit <EM>page number</EM>
@@ -2129,7 +2129,7 @@ is, <VAR>va</VAR> with the page offset set to 0.
 <P>
 
 Virtual memory in Pintos is divided into two regions: user virtual
-memory and kernel virtual memory (see section <A HREF="pintos_3.html#SEC37">3.1.4 Virtual Memory Layout</A>).  The
+memory and kernel virtual memory (see section <A HREF="pintos_3.html#SEC38">3.1.4 Virtual Memory Layout</A>).  The
 boundary between them is <CODE>PHYS_BASE</CODE>:
 </P>
 <P>
@@ -2197,9 +2197,9 @@ kernel virtual address.
 
 <A NAME="Page Table"></A>
 <HR SIZE="6">
-<A NAME="SEC115"></A>
+<A NAME="SEC116"></A>
 <H2> A.7 Page Table </H2>
-<!--docid::SEC115::-->
+<!--docid::SEC116::-->
 <P>
 
 The code in <Q><TT>pagedir.c</TT></Q> is an abstract interface to the 80<VAR>x</VAR>86
@@ -2216,9 +2216,9 @@ The sections below describe the page table interface and internals.
 
 <A NAME="Page Table Creation Destruction Activation"></A>
 <HR SIZE="6">
-<A NAME="SEC116"></A>
+<A NAME="SEC117"></A>
 <H3> A.7.1 Creation, Destruction, and Activation </H3>
-<!--docid::SEC116::-->
+<!--docid::SEC117::-->
 <P>
 
 These functions create, destroy, and activate page tables.  The base
@@ -2261,9 +2261,9 @@ translate memory references.
 
 <A NAME="Page Tables Inspection and Updates"></A>
 <HR SIZE="6">
-<A NAME="SEC117"></A>
+<A NAME="SEC118"></A>
 <H3> A.7.2 Inspection and Updates </H3>
-<!--docid::SEC117::-->
+<!--docid::SEC118::-->
 <P>
 
 These functions examine or update the mappings from pages to frames
@@ -2327,9 +2327,9 @@ This function has no effect if <VAR>page</VAR> is not mapped.
 
 <A NAME="Page Table Accessed and Dirty Bits"></A>
 <HR SIZE="6">
-<A NAME="SEC118"></A>
+<A NAME="SEC119"></A>
 <H3> A.7.3 Accessed and Dirty Bits </H3>
-<!--docid::SEC118::-->
+<!--docid::SEC119::-->
 <P>
 
 80<VAR>x</VAR>86 hardware provides some assistance for implementing page
@@ -2350,7 +2350,7 @@ updated.
 </P>
 <P>
 
-See section <A HREF="pintos_4.html#SEC64">4.1.5.1 Accessed and Dirty Bits</A>, on applying these bits in implementing
+See section <A HREF="pintos_4.html#SEC65">4.1.5.1 Accessed and Dirty Bits</A>, on applying these bits in implementing
 page replacement algorithms.
 </P>
 <P>
@@ -2380,9 +2380,9 @@ its dirty (or accessed) bit is set to <VAR>value</VAR>.
 
 <A NAME="Page Table Details"></A>
 <HR SIZE="6">
-<A NAME="SEC119"></A>
+<A NAME="SEC120"></A>
 <H3> A.7.4 Page Table Details </H3>
-<!--docid::SEC119::-->
+<!--docid::SEC120::-->
 <P>
 
 The functions provided with Pintos are sufficient to implement the
@@ -2394,9 +2394,9 @@ section.
 
 <A NAME="Page Table Structure"></A>
 <HR SIZE="6">
-<A NAME="SEC120"></A>
+<A NAME="SEC121"></A>
 <H4> A.7.4.1 Structure </H4>
-<!--docid::SEC120::-->
+<!--docid::SEC121::-->
 <P>
 
 The top-level paging data structure is a page called the &quot;page
@@ -2411,7 +2411,7 @@ kB virtual page to a physical page.
 
 Translation of a virtual address into a physical address follows
 the three-step process illustrated in the diagram
-below:<A NAME="DOCF6" HREF="pintos_fot.html#FOOT6">(6)</A>
+below:<A NAME="DOCF5" HREF="pintos_fot.html#FOOT5">(5)</A>
 </P>
 <P>
 
@@ -2545,14 +2545,14 @@ defined in <Q><TT>threads/vaddr.h</TT></Q>.
 
 <A NAME="Page Table Entry Format"></A>
 <HR SIZE="6">
-<A NAME="SEC121"></A>
+<A NAME="SEC122"></A>
 <H4> A.7.4.2 Page Table Entry Format </H4>
-<!--docid::SEC121::-->
+<!--docid::SEC122::-->
 <P>
 
 You do not need to understand the PTE format to do the Pintos
 projects, unless you wish to incorporate the page table into your
-supplemental page table (see section <A HREF="pintos_4.html#SEC62">4.1.4 Managing the Supplemental Page Table</A>).
+supplemental page table (see section <A HREF="pintos_4.html#SEC63">4.1.4 Managing the Supplemental Page Table</A>).
 </P>
 <P>
 
@@ -2610,7 +2610,7 @@ user processes from accessing them.
 <A NAME="IDX148"></A>
 <DL>
 <DT><U>Macro:</U> <B>PTE_A</B>
-<DD>Bit 5, the &quot;accessed&quot; bit.  See section <A HREF="pintos_6.html#SEC118">A.7.3 Accessed and Dirty Bits</A>.
+<DD>Bit 5, the &quot;accessed&quot; bit.  See section <A HREF="pintos_6.html#SEC119">A.7.3 Accessed and Dirty Bits</A>.
 </DL>
 <P>
 
@@ -2618,7 +2618,7 @@ user processes from accessing them.
 </P>
 <DL>
 <DT><U>Macro:</U> <B>PTE_D</B>
-<DD>Bit 6, the &quot;dirty&quot; bit.  See section <A HREF="pintos_6.html#SEC118">A.7.3 Accessed and Dirty Bits</A>.
+<DD>Bit 6, the &quot;dirty&quot; bit.  See section <A HREF="pintos_6.html#SEC119">A.7.3 Accessed and Dirty Bits</A>.
 </DL>
 <P>
 
@@ -2685,9 +2685,9 @@ actually represent a physical address.
 
 <A NAME="Page Directory Entry Format"></A>
 <HR SIZE="6">
-<A NAME="SEC122"></A>
+<A NAME="SEC123"></A>
 <H4> A.7.4.3 Page Directory Entry Format </H4>
-<!--docid::SEC122::-->
+<!--docid::SEC123::-->
 <P>
 
 Page directory entries have the same format as PTEs, except that the
@@ -2719,9 +2719,9 @@ marked read/write.
 
 <A NAME="Hash Table"></A>
 <HR SIZE="6">
-<A NAME="SEC123"></A>
+<A NAME="SEC124"></A>
 <H2> A.8 Hash Table </H2>
-<!--docid::SEC123::-->
+<!--docid::SEC124::-->
 <P>
 
 Pintos provides a hash table data structure in <Q><TT>lib/kernel/hash.c</TT></Q>.
@@ -2741,9 +2741,9 @@ well.
 
 <A NAME="Hash Data Types"></A>
 <HR SIZE="6">
-<A NAME="SEC124"></A>
+<A NAME="SEC125"></A>
 <H3> A.8.1 Data Types </H3>
-<!--docid::SEC124::-->
+<!--docid::SEC125::-->
 <P>
 
 A hash table is represented by <CODE>struct hash</CODE>.
@@ -2803,7 +2803,7 @@ yields the address of the <CODE>struct thread</CODE> that <CODE>h</CODE> points 
 </DL>
 <P>
 
-See section <A HREF="pintos_6.html#SEC128">A.8.5 Hash Table Example</A>, for an example.
+See section <A HREF="pintos_6.html#SEC129">A.8.5 Hash Table Example</A>, for an example.
 </P>
 <P>
 
@@ -2873,7 +2873,7 @@ build an operating system kernel, not to design a hash function.
 </P>
 <P>
 
-See section <A HREF="pintos_6.html#SEC129">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>.
+See section <A HREF="pintos_6.html#SEC130">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>.
 </P>
 </DL>
 <P>
@@ -2891,12 +2891,12 @@ If two elements compare equal, then they must hash to equal values.
 </P>
 <P>
 
-See section <A HREF="pintos_6.html#SEC129">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>.
+See section <A HREF="pintos_6.html#SEC130">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>.
 </P>
 </DL>
 <P>
 
-See section <A HREF="pintos_6.html#SEC128">A.8.5 Hash Table Example</A>, for hash and comparison function examples.
+See section <A HREF="pintos_6.html#SEC129">A.8.5 Hash Table Example</A>, for hash and comparison function examples.
 </P>
 <P>
 
@@ -2912,16 +2912,16 @@ function as an argument:
 <DD>Performs some kind of action, chosen by the caller, on <VAR>element</VAR>.
 <P>
 
-See section <A HREF="pintos_6.html#SEC129">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>.
+See section <A HREF="pintos_6.html#SEC130">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>.
 </P>
 </DL>
 <P>
 
 <A NAME="Basic Hash Functions"></A>
 <HR SIZE="6">
-<A NAME="SEC125"></A>
+<A NAME="SEC126"></A>
 <H3> A.8.2 Basic Functions </H3>
-<!--docid::SEC125::-->
+<!--docid::SEC126::-->
 <P>
 
 These functions create, destroy, and inspect hash tables.
@@ -2939,7 +2939,7 @@ Returns true if successful, false on failure.  <CODE>hash_init()</CODE> calls
 <CODE>malloc()</CODE> and fails if memory cannot be allocated.
 <P>
 
-See section <A HREF="pintos_6.html#SEC129">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>, which is
+See section <A HREF="pintos_6.html#SEC130">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>, which is
 most often a null pointer.
 </P>
 </DL>
@@ -2996,9 +2996,9 @@ false if <VAR>hash</VAR> contains at least one element.
 
 <A NAME="Hash Search Functions"></A>
 <HR SIZE="6">
-<A NAME="SEC126"></A>
+<A NAME="SEC127"></A>
 <H3> A.8.3 Search Functions </H3>
-<!--docid::SEC126::-->
+<!--docid::SEC127::-->
 <P>
 
 Each of these functions searches a hash table for an element that
@@ -3043,9 +3043,9 @@ table.  Thus, only key data in the element needs to be initialized, and
 other data in the element will not be used.  It often makes sense to
 declare an instance of the element type as a local variable, initialize
 the key data, and then pass the address of its <CODE>struct hash_elem</CODE> to
-<CODE>hash_find()</CODE> or <CODE>hash_delete()</CODE>.  See section <A HREF="pintos_6.html#SEC128">A.8.5 Hash Table Example</A>, for
+<CODE>hash_find()</CODE> or <CODE>hash_delete()</CODE>.  See section <A HREF="pintos_6.html#SEC129">A.8.5 Hash Table Example</A>, for
 an example.  (Large structures should not be
-allocated as local variables.  See section <A HREF="pintos_6.html#SEC97">A.2.1 <CODE>struct thread</CODE></A>, for more
+allocated as local variables.  See section <A HREF="pintos_6.html#SEC98">A.2.1 <CODE>struct thread</CODE></A>, for more
 information.)
 </P>
 <P>
@@ -3078,14 +3078,14 @@ must <CODE>free()</CODE> the element after it is no longer needed.
 
 <A NAME="Hash Iteration Functions"></A>
 <HR SIZE="6">
-<A NAME="SEC127"></A>
+<A NAME="SEC128"></A>
 <H3> A.8.4 Iteration Functions </H3>
-<!--docid::SEC127::-->
+<!--docid::SEC128::-->
 <P>
 
 These functions allow iterating through the elements in a hash table.
 Two interfaces are supplied.  The first requires writing and supplying a
-<VAR>hash_action_func</VAR> to act on each element (see section <A HREF="pintos_6.html#SEC124">A.8.1 Data Types</A>).
+<VAR>hash_action_func</VAR> to act on each element (see section <A HREF="pintos_6.html#SEC125">A.8.1 Data Types</A>).
 </P>
 <P>
 
@@ -3163,9 +3163,9 @@ called for the first time.
 
 <A NAME="Hash Table Example"></A>
 <HR SIZE="6">
-<A NAME="SEC128"></A>
+<A NAME="SEC129"></A>
 <H3> A.8.5 Hash Table Example </H3>
-<!--docid::SEC128::-->
+<!--docid::SEC129::-->
 <P>
 
 Suppose you have a structure, called <CODE>struct page</CODE>, that you
@@ -3209,7 +3209,7 @@ page_less (const struct hash_elem *a_, const struct hash_elem *b_,
 </pre></td></tr></table><P>
 
 (The use of <CODE>UNUSED</CODE> in these functions' prototypes suppresses a
-warning that <VAR>aux</VAR> is unused.  See section <A HREF="pintos_10.html#SEC148">E.3 Function and Parameter Attributes</A>, for information about <CODE>UNUSED</CODE>.  See section <A HREF="pintos_6.html#SEC129">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>.)
+warning that <VAR>aux</VAR> is unused.  See section <A HREF="pintos_10.html#SEC149">E.3 Function and Parameter Attributes</A>, for information about <CODE>UNUSED</CODE>.  See section <A HREF="pintos_6.html#SEC130">A.8.6 Auxiliary Data</A>, for an explanation of <VAR>aux</VAR>.)
 </P>
 <P>
 
@@ -3261,7 +3261,7 @@ page_lookup (const void *address)
 
 <CODE>struct page</CODE> is allocated as a local variable here on the assumption
 that it is fairly small.  Large structures should not be allocated as
-local variables.  See section <A HREF="pintos_6.html#SEC97">A.2.1 <CODE>struct thread</CODE></A>, for more information.
+local variables.  See section <A HREF="pintos_6.html#SEC98">A.2.1 <CODE>struct thread</CODE></A>, for more information.
 </P>
 <P>
 
@@ -3272,9 +3272,9 @@ A similar function could delete a page by address using
 
 <A NAME="Hash Auxiliary Data"></A>
 <HR SIZE="6">
-<A NAME="SEC129"></A>
+<A NAME="SEC130"></A>
 <H3> A.8.6 Auxiliary Data </H3>
-<!--docid::SEC129::-->
+<!--docid::SEC130::-->
 <P>
 
 In simple cases like the example above, there's no need for the
@@ -3298,9 +3298,9 @@ the length as an <VAR>aux</VAR> parameter.
 
 <A NAME="Hash Synchronization"></A>
 <HR SIZE="6">
-<A NAME="SEC130"></A>
+<A NAME="SEC131"></A>
 <H3> A.8.7 Synchronization </H3>
-<!--docid::SEC130::-->
+<!--docid::SEC131::-->
 <P>
 
 The hash table does not do any internal synchronization.  It is the
@@ -3323,8 +3323,8 @@ how it is designed and organized, as with any other data structure.
 <A NAME="4.4BSD Scheduler"></A>
 <HR SIZE="6">
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_6.html#SEC90"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_7.html#SEC131"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_6.html#SEC91"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_7.html#SEC132"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -3336,6 +3336,6 @@ This document was generated
 by <I>Stephen Houser</I> on <I>August, 7 2018</I>
 using <A HREF="http://texi2html.cvshome.org"><I>texi2html</I></A>
 </FONT>
-
+</div></main>
 </BODY>
 </HTML>

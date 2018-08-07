@@ -19,15 +19,15 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 <META NAME="Generator" CONTENT="texi2html 1.66">
-<LINK REL=\"stylesheet\" HREF=\"pintos.css\">
+<LINK REL="stylesheet" HREF="../assets/main.css"><LINK REL="stylesheet" HREF="../assets/cos450.css"><LINK REL="stylesheet" HREF="pintos.css">
 </HEAD>
 
 <BODY >
-<h1>USM COS 450 Operating Systems (Fall 2018)</h1><hr/>
+<header class="site-header" role="banner"><div class="wrapper"><a class="site-title" rel="author" href="/">USM COS 450 Operating Systems (Fall 2018)</a><nav class="site-nav"><div class="trigger"><a class="page-link" href="/">Home</a></div></nav></div></header><main class="page-content" aria-label="Content"><div class="wrapper">
 <A NAME="SEC1"></A>
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
 <TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_2.html#SEC15"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_2.html#SEC16"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -55,13 +55,13 @@ a dedicated PC for use with Pintos.  Therefore, we will run Pintos projects
 in a system simulator, that is, a program that simulates an 80<VAR>x</VAR>86
 CPU and its peripheral devices accurately enough that unmodified operating
 systems and software can run under it.  In class we will use the
-<A HREF="http://bochs.sourceforge.net">Bochs</A> and 
+<A HREF="http://bochs.sourceforge.net">Bochs</A> and
 <A HREF="http://fabrice.bellard.free.fr/qemu/">QEMU</A> simulators.  Pintos has also been tested with
 <A HREF="http://www.vmware.com/">VMware Player</A>.
 </P>
 <P>
 
-These projects are hard.  They have a reputation of taking a lot of
+These projects are hard. COS 450 has a reputation of taking a lot of
 time, and deservedly so.  We will do what we can to reduce the workload, such
 as providing a lot of support material, but there is plenty of
 hard work that needs to be done.  We welcome your
@@ -84,28 +84,57 @@ projects.
 <!--docid::SEC2::-->
 <P>
 
-To get started, you'll have to log into a machine that Pintos can be
-built on.  
-The CS 140 &quot;officially supported&quot; Pintos development machines are
-those in the myth, corn, and cardinal clusters.
-We will test your code on these machines, and the instructions given
-here assume this environment.  We cannot provide support for installing
-and working on Pintos on your own machine, but we provide instructions
-for doing so nonetheless (see section <A HREF="pintos_12.html#SEC163">G. Installing Pintos</A>).
+To get started, you'll have to setup or connect to a machine that Pintos can be
+built on. 
+You can either use the Linux workstations in the USM CS Lab (Science Building)
+or use the preconfigured Linux Virtual Machine (VM) to do your assignments.
+The process for compiling, debugging, and submitting your work will be nearly identical 
+on both configurations once you get things set up.
 </P>
 <P>
 
-Once you've logged into one of these machines, either locally or
-remotely, start out by adding our binaries directory to your <CODE>PATH</CODE>
-environment.  
-Under <CODE>csh</CODE>, Stanford's login shell, you can do so
-with this command:<A NAME="DOCF1" HREF="pintos_fot.html#FOOT1">(1)</A>
-<TABLE><tr><td>&nbsp;</td><td class=example><pre>set path = ( /usr/class/cs140/`uname -m`/bin $path )
-</pre></td></tr></table><STRONG>Notice that both <Q><SAMP>`</SAMP></Q> are left single quotes or
-&quot;backticks,&quot; not apostrophes (<Q><SAMP>'</SAMP></Q>).</STRONG>
-It is a good idea to add this line to the <Q><TT>.cshrc</TT></Q> file
-in your home directory.  Otherwise, you'll have to type it every time
-you log in.
+If you choose to use the USM CS Lab computers, connecting them is described on the 
+<A HREF="http://usm.maine.edu/cos/unix-lab-guide">CS department webpage</A>.
+After you are logged in, to access the tools you need for the assignments, 
+you need to add them to your executuion <CODE>PATH</CODE>. You can do so with this command:
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>export PATH=/usr/class/cos450/bin:$PATH
+</pre></td></tr></table>It is a good idea to add this line to the <Q><TT>~/.bashrc</TT></Q> or <Q><TT>~/.profile</TT></Q> file
+in your home directory. Otherwise, you'll have to type it every time
+you log in. You should also add the following to your <Q><TT>~/.gdbinit</TT></Q> file
+to include some very helpful <CODE>gdb</CODE> macros for debugging.
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>source /usr/class/cos450/bin/gdb-macros
+</pre></td></tr></table><P>
+
+If you choose instead to setup and work from a Virtual Machine (VM) on your own 
+computer,  you will need virtual machine software, like 
+<A HREF="https://virtualbox.org">VirtualBox</A>. 
+VirtualBox is free and runs on macOS, Windows, or Linux. VirtualBox also provides
+file and folder sharing between your computer and the virtual computer which
+can make your edit, debug, test process very fluid. We have created a custom
+VM Image (<Q><TT>/usr/class/cos450/pintos-dev.ova</TT></Q>) that you can import into 
+your VM software and be up and running in minutes. The basic procedure to get
+running is as follows:
+</P>
+<P>
+
+<OL>
+<LI>Copy and import <Q><TT>/usr/class/cos450/pintos-dev.ova</TT></Q> into your VM software
+<LI>Check the settings (specifically the network adapter to make sure it can access the Internet) and start the virtual machine
+<LI>Login as the user <CODE>pintos</CODE> with the password <CODE>cos450</CODE>
+</OL>
+<P>
+
+NOTE: The preconfigured VM already has the <CODE>PATH</CODE> and <Q><TT>~/.gdbinit</TT></Q> 
+changes made for you.
+</P>
+<P>
+
+ 
+We will test your code on these machines, and the instructions given
+here assume this environment.  We cannot provide support for installing
+and working on Pintos on your own machine, but we provide instructions
+for doing so nonetheless (see section <A HREF="pintos_12.html#SEC164">G. Installing Pintos</A>).
+</P>
 <P>
 
 <A NAME="Source Tree Overview"></A>
@@ -115,12 +144,47 @@ you log in.
 <!--docid::SEC3::-->
 <P>
 
-Now you can extract the source for Pintos into a directory named
-<Q><TT>pintos/src</TT></Q>, by executing
-<TABLE><tr><td>&nbsp;</td><td class=example><pre>git clone file:///usr/class/cs140/winter13/pintos/.git
+There's a few steps to getting the source code and setting up git to track your
+work. Once set up, you will be able to easily track (or revert) your changes, 
+save your work and submit your projects.
+</P>
+<P>
+
+First, you will need to accept the assignment and create your group in 
+<A HREF="https://classroom.github.com">GitHub Classroom</A>. The specifc link to use
+will be given out in class. Accepting the assignment will create a repository 
+(on GitHub) that contains your groups' copy of Pintos. You will get a unique
+git URL for cloning, and pushing your work. Use this unique URL in the following
+steps.
+</P>
+<P>
+
+After you've accepted the assignment and created your groups GitHub repository, 
+you need to check out (clone) a copy of the Pintos source code into a working 
+directory on your development machine. 
+Change to the directory you want to create your top-level <Q><TT>pintos</TT></Q> 
+directory in and <CODE>clone</CODE> your groups Pintos git repository 
+Replace the URL below with your groups URL from GitHub Classroom.
+</P>
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>git clone http://github.com/USM-COS450-F18/pintos-student.git
 </pre></td></tr></table><P>
 
-Let's take a look at what's inside.  Here's the directory structure
+You will be prompted to enter you GitHub username and password. You can configure
+shared <CODE>ssh</CODE> keys and avoid having to type your password every time you <CODE>push</CODE>
+or <CODE>pull</CODE> from GitHub, take a look at <A HREF="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Adding a new ssh key to your GitHub account</A> for complete instructions.
+ 
+You should get some checkout details from git similar to the following:
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>remote: Counting objects: 9465, done.
+remote: Compressing objects: 100% (2748/2748), done.
+remote: Total 9465 (delta 6463), reused 9407 (delta 6431)
+Receiving objects: 100% (9465/9465), 16.61 MiB | 9.20 MiB/s, done.
+Resolving deltas: 100% (6463/6463), done.
+Checking connectivity... done.
+</pre></td></tr></table><P>
+
+Now you can really take a look at what's inside. Here's the directory structure
 that you should see in <Q><TT>pintos/src</TT></Q>:
 </P>
 <P>
@@ -220,6 +284,11 @@ inside.  The entire build should take less than 30 seconds.
 </P>
 <P>
 
+Watch the commands executed during the build.  On the Linux machines,
+the ordinary system tools are used.
+</P>
+<P>
+
 Following the build, the following are the interesting files in the
 <Q><TT>build</TT></Q> directory:
 </P>
@@ -237,7 +306,7 @@ the kernel.  See  <A HREF="pintos_2.html#Adding Source Files">Adding Source File
 <DD>Object file for the entire kernel.  This is the result of linking
 object files compiled from each individual kernel source file into a
 single object file.  It contains debug information, so you can run
-GDB (see section <A HREF="pintos_10.html#SEC151">E.5 GDB</A>) or <CODE>backtrace</CODE> (see section <A HREF="pintos_10.html#SEC149">E.4 Backtraces</A>) on it.
+GDB (see section <A HREF="pintos_10.html#SEC152">E.5 GDB</A>) or <CODE>backtrace</CODE> (see section <A HREF="pintos_10.html#SEC150">E.4 Backtraces</A>) on it.
 <P>
 
 </P>
@@ -325,7 +394,7 @@ from them by <Q><SAMP>--</SAMP></Q>, so that the whole command looks like
 <CODE>pintos</CODE> without any arguments to see a list of available options.
 Options can select a simulator to use: the default is Bochs, but
 <Q><SAMP>--qemu</SAMP></Q> selects QEMU.  You can run the simulator
-with a debugger (see section <A HREF="pintos_10.html#SEC151">E.5 GDB</A>).  You can set the amount of memory to give
+with a debugger (see section <A HREF="pintos_10.html#SEC152">E.5 GDB</A>).  You can set the amount of memory to give
 the VM.  Finally, you can select how you want VM output to be displayed:
 use <Q><SAMP>-v</SAMP></Q> to turn off the VGA display, <Q><SAMP>-t</SAMP></Q> to use your
 terminal window as the VGA display instead of opening a new window
@@ -500,7 +569,7 @@ ask us about it.
 
 We will judge your design based on the design document and the source
 code that you submit.  We will read your entire design document and much
-of your source code.  
+of your source code.
 </P>
 <P>
 
@@ -522,7 +591,7 @@ minutes.
 
 We provide a design document template for each project.  For each
 significant part of a project, the template asks questions in four
-areas: 
+areas:
 </P>
 <P>
 
@@ -602,7 +671,7 @@ arguments (formal language or proofs are unnecessary).
 An incomplete, evasive, or non-responsive design document or one that
 strays from the template without good reason may be penalized.
 Incorrect capitalization, punctuation, spelling, or grammar can also
-cost points.  See section <A HREF="pintos_9.html#SEC142">D. Project Documentation</A>, for a sample design document
+cost points.  See section <A HREF="pintos_9.html#SEC143">D. Project Documentation</A>, for a sample design document
 for a fictitious project.
 </P>
 <P>
@@ -663,11 +732,49 @@ compiler doesn't care about how it looks or how well it is written.
 </P>
 <P>
 
-<A NAME="Legal and Ethical Issues"></A>
+<A NAME="Project Submission"></A>
 <HR SIZE="6">
 <A NAME="SEC12"></A>
-<H2> 1.3 Legal and Ethical Issues </H2>
+<H3> 1.2.3 Project Submission </H3>
 <!--docid::SEC12::-->
+<P>
+
+In order to properly test and grade your project work, we need a complete
+clean copy of your code and your design document. Please create and name
+the files properly.
+</P>
+<P>
+
+Your source code will be submitted via <CODE>git push</CODE> command to your groups 
+<A HREF="https://classroom.github.com">GitHub Classroom</A> repository.
+</P>
+<P>
+
+The design document should be a copy of the correct template with all
+sections completed. It should be named exactly <Q><TT>DESIGNDOC</TT></Q> and located
+in the proper directory as specified in the assignment instructions.
+</P>
+<P>
+
+<OL>
+<LI><CODE>make clean</CODE> in your <Q><TT>pintos/src</TT></Q> directory.
+<LI><CODE>git tag project1</CODE> to tag your code for each project
+<LI><CODE>git push --follow-tags origin</CODE> to push your code (and tags) to GitHub.
+</OL>
+<P>
+
+Following these instructions ensures that we can use scripts to
+extract, build, and grade your project. The penalty for violating the
+instructions is a 10 point deduction; we will give you two warnings
+where you can resubmit your project.
+</P>
+<P>
+
+<A NAME="Legal and Ethical Issues"></A>
+<HR SIZE="6">
+<A NAME="SEC13"></A>
+<H2> 1.3 Legal and Ethical Issues </H2>
+<!--docid::SEC13::-->
 <P>
 
 Pintos is distributed under a liberal license that allows free use,
@@ -675,11 +782,11 @@ modification, and distribution.  Students and others who work on Pintos
 own the code that they write and may use it for any purpose.
 Pintos comes with NO WARRANTY, not even for MERCHANTABILITY or FITNESS
 FOR A PARTICULAR PURPOSE.
-See section <A HREF="pintos_14.html#SEC169">License</A>, for details of the license and lack of warranty.
+See section <A HREF="pintos_14.html#SEC170">License</A>, for details of the license and lack of warranty.
 </P>
 <P>
 
-In the context of Stanford's CS 140 course, please respect the spirit
+In the context of USM's COS 450 course, please respect the spirit
 and the letter of the honor code by refraining from reading any homework
 solutions available online or elsewhere.  Reading the source code for
 other operating system kernels, such as Linux or FreeBSD, is allowed,
@@ -690,9 +797,9 @@ inspired your own in your design documentation.
 
 <A NAME="Acknowledgements"></A>
 <HR SIZE="6">
-<A NAME="SEC13"></A>
+<A NAME="SEC14"></A>
 <H2> 1.4 Acknowledgements </H2>
-<!--docid::SEC13::-->
+<!--docid::SEC14::-->
 <P>
 
 The Pintos core and this documentation were originally written by Ben
@@ -724,17 +831,22 @@ Twohey, Sameer Qureshi, and John Rector.
 </P>
 <P>
 
-Example code for monitors (see section <A HREF="pintos_6.html#SEC104">A.3.4 Monitors</A>) is
+Example code for monitors (see section <A HREF="pintos_6.html#SEC105">A.3.4 Monitors</A>) is
 from classroom slides originally by Dawson Engler and updated by Mendel
 Rosenblum.
 </P>
 <P>
 
+Local changes for Computer Science at the University of Southern Maine
+by Stephen Houser <A HREF="mailto:houser@usm.maine.edu">houser@usm.maine.edu</A>.
+</P>
+<P>
+
 <A NAME="Trivia"></A>
 <HR SIZE="6">
-<A NAME="SEC14"></A>
+<A NAME="SEC15"></A>
 <H2> 1.5 Trivia </H2>
-<!--docid::SEC14::-->
+<!--docid::SEC15::-->
 <P>
 
 Pintos originated as a replacement for Nachos with a similar design.
@@ -754,7 +866,7 @@ trouble with blow-ups.
 <HR SIZE="6">
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
 <TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_1.html#SEC1"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_2.html#SEC15"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_2.html#SEC16"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -766,6 +878,6 @@ This document was generated
 by <I>Stephen Houser</I> on <I>August, 7 2018</I>
 using <A HREF="http://texi2html.cvshome.org"><I>texi2html</I></A>
 </FONT>
-
+</div></main>
 </BODY>
 </HTML>

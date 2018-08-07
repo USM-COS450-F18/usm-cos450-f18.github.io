@@ -19,15 +19,15 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 <META NAME="Generator" CONTENT="texi2html 1.66">
-<LINK REL=\"stylesheet\" HREF=\"pintos.css\">
+<LINK REL="stylesheet" HREF="../assets/main.css"><LINK REL="stylesheet" HREF="../assets/cos450.css"><LINK REL="stylesheet" HREF="pintos.css">
 </HEAD>
 
 <BODY >
-<h1>USM COS 450 Operating Systems (Fall 2018)</h1><hr/>
-<A NAME="SEC145"></A>
+<header class="site-header" role="banner"><div class="wrapper"><a class="site-title" rel="author" href="/">USM COS 450 Operating Systems (Fall 2018)</a><nav class="site-nav"><div class="trigger"><a class="page-link" href="/">Home</a></div></nav></div></header><main class="page-content" aria-label="Content"><div class="wrapper">
+<A NAME="SEC146"></A>
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_9.html#SEC142"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_11.html#SEC158"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_9.html#SEC143"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_11.html#SEC159"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -36,7 +36,7 @@ Send bugs and suggestions to <users@texi2html.cvshome.org>
 
 <HR SIZE=2>
 <H1> E. Debugging Tools </H1>
-<!--docid::SEC145::-->
+<!--docid::SEC146::-->
 <P>
 
 Many tools lie at your disposal for debugging Pintos.  This appendix
@@ -46,9 +46,9 @@ introduces you to a few of them.
 
 <A NAME="printf"></A>
 <HR SIZE="6">
-<A NAME="SEC146"></A>
+<A NAME="SEC147"></A>
 <H2> E.1 <CODE>printf()</CODE> </H2>
-<!--docid::SEC146::-->
+<!--docid::SEC147::-->
 <P>
 
 Don't underestimate the value of <CODE>printf()</CODE>.  The way
@@ -69,15 +69,15 @@ but not <CODE>&lt;2&gt;</CODE>, then something bad happened between those two
 points, and so on.  Based on what you learn, you can then insert more
 <CODE>printf()</CODE> calls in the new, smaller region of code you suspect.
 Eventually you can narrow the problem down to a single statement.
-See section <A HREF="pintos_10.html#SEC155">E.6 Triple Faults</A>, for a related technique.
+See section <A HREF="pintos_10.html#SEC156">E.6 Triple Faults</A>, for a related technique.
 </P>
 <P>
 
 <A NAME="ASSERT"></A>
 <HR SIZE="6">
-<A NAME="SEC147"></A>
+<A NAME="SEC148"></A>
 <H2> E.2 <CODE>ASSERT</CODE> </H2>
-<!--docid::SEC147::-->
+<!--docid::SEC148::-->
 <P>
 
 Assertions are useful because they can catch problems early, before
@@ -103,15 +103,15 @@ for checking assertions.
 <DD>Tests the value of <VAR>expression</VAR>.  If it evaluates to zero (false),
 the kernel panics.  The panic message includes the expression that
 failed, its file and line number, and a backtrace, which should help you
-to find the problem.  See section <A HREF="pintos_10.html#SEC149">E.4 Backtraces</A>, for more information.
+to find the problem.  See section <A HREF="pintos_10.html#SEC150">E.4 Backtraces</A>, for more information.
 </DL>
 <P>
 
 <A NAME="Function and Parameter Attributes"></A>
 <HR SIZE="6">
-<A NAME="SEC148"></A>
+<A NAME="SEC149"></A>
 <H2> E.3 Function and Parameter Attributes </H2>
-<!--docid::SEC148::-->
+<!--docid::SEC149::-->
 <P>
 
 These macros defined in <Q><TT>&lt;debug.h&gt;</TT></Q> tell the compiler special
@@ -164,9 +164,9 @@ compiler tell you if you pass the wrong argument types.
 
 <A NAME="Backtraces"></A>
 <HR SIZE="6">
-<A NAME="SEC149"></A>
+<A NAME="SEC150"></A>
 <H2> E.4 Backtraces </H2>
-<!--docid::SEC149::-->
+<!--docid::SEC150::-->
 <P>
 
 When the kernel panics, it prints a &quot;backtrace,&quot; that is, a summary
@@ -214,9 +214,9 @@ backtraces for test failures; see <A HREF="pintos_2.html#The pass function fails
 
 <A NAME="Backtrace Example"></A>
 <HR SIZE="6">
-<A NAME="SEC150"></A>
+<A NAME="SEC151"></A>
 <H3> E.4.1 Example </H3>
-<!--docid::SEC150::-->
+<!--docid::SEC151::-->
 <P>
 
 Here's an example.  Suppose that Pintos printed out this following call
@@ -369,9 +369,9 @@ command prints the same output as the first one we used:
 
 <A NAME="GDB"></A>
 <HR SIZE="6">
-<A NAME="SEC151"></A>
+<A NAME="SEC152"></A>
 <H2> E.5 GDB </H2>
-<!--docid::SEC151::-->
+<!--docid::SEC152::-->
 <P>
 
 You can run Pintos under the supervision of the GDB debugger.
@@ -379,7 +379,7 @@ First, start Pintos with the <Q><SAMP>--gdb</SAMP></Q> option, e.g.
 <CODE>pintos --gdb -- run mytest</CODE>.  Second, open a second terminal on
 the same machine and
 use <CODE>pintos-gdb</CODE> to invoke GDB on
-<Q><TT>kernel.o</TT></Q>:<A NAME="DOCF8" HREF="pintos_fot.html#FOOT8">(8)</A>
+<Q><TT>kernel.o</TT></Q>:<A NAME="DOCF7" HREF="pintos_fot.html#FOOT7">(7)</A>
 <TABLE><tr><td>&nbsp;</td><td class=example><pre>pintos-gdb kernel.o
 </pre></td></tr></table>and issue the following GDB command:
 <TABLE><tr><td>&nbsp;</td><td class=example><pre>target remote localhost:1234
@@ -395,9 +395,9 @@ can pause the process at any point with <KBD>Ctrl+C</KBD>.
 
 <A NAME="Using GDB"></A>
 <HR SIZE="6">
-<A NAME="SEC152"></A>
+<A NAME="SEC153"></A>
 <H3> E.5.1 Using GDB </H3>
-<!--docid::SEC152::-->
+<!--docid::SEC153::-->
 <P>
 
 You can read the GDB manual by typing <CODE>info gdb</CODE> at a
@@ -553,7 +553,7 @@ are stuck when a deadlock occurs.  Please see the example scenario below.
 <DT><U>GDB Macro:</U> <B>btpagefault</B>
 <DD>Print a backtrace of the current thread after a page fault exception.
 Normally, when a page fault exception occurs, GDB will stop
-with a message that might say:<A NAME="DOCF9" HREF="pintos_fot.html#FOOT9">(9)</A>
+with a message that might say:<A NAME="DOCF8" HREF="pintos_fot.html#FOOT8">(8)</A>
 <P>
 
 <TABLE><tr><td>&nbsp;</td><td class=example><pre>Program received signal 0, Signal 0.
@@ -617,7 +617,7 @@ Before Project 3, a page fault exception in kernel code is always a bug
 in your kernel, because your kernel should never crash.  Starting with
 Project 3, the situation will change if you use the <CODE>get_user()</CODE> and
 <CODE>put_user()</CODE> strategy to verify user memory accesses
-(see section <A HREF="pintos_3.html#SEC39">3.1.5 Accessing User Memory</A>).
+(see section <A HREF="pintos_3.html#SEC40">3.1.5 Accessing User Memory</A>).
 </P>
 <P>
 
@@ -627,9 +627,9 @@ Project 3, the situation will change if you use the <CODE>get_user()</CODE> and
 
 <A NAME="Example GDB Session"></A>
 <HR SIZE="6">
-<A NAME="SEC153"></A>
+<A NAME="SEC154"></A>
 <H3> E.5.2 Example GDB Session </H3>
-<!--docid::SEC153::-->
+<!--docid::SEC154::-->
 <P>
 
 This section narrates a sample GDB session, provided by Godmar Back.
@@ -827,9 +827,9 @@ command.
 
 <A NAME="GDB FAQ"></A>
 <HR SIZE="6">
-<A NAME="SEC154"></A>
+<A NAME="SEC155"></A>
 <H3> E.5.3 FAQ </H3>
-<!--docid::SEC154::-->
+<!--docid::SEC155::-->
 <P>
 
 </P>
@@ -893,9 +893,9 @@ that the third is less likely, but it is also possible.
 
 <A NAME="Triple Faults"></A>
 <HR SIZE="6">
-<A NAME="SEC155"></A>
+<A NAME="SEC156"></A>
 <H2> E.6 Triple Faults </H2>
-<!--docid::SEC155::-->
+<!--docid::SEC156::-->
 <P>
 
 When a CPU exception handler, such as a page fault handler, cannot be
@@ -915,7 +915,7 @@ because the reboots might be happening even before everything needed for
 <P>
 
 There are at least two ways to debug triple faults.  First, you can run
-Pintos in Bochs under GDB (see section <A HREF="pintos_10.html#SEC151">E.5 GDB</A>).  If Bochs has been built
+Pintos in Bochs under GDB (see section <A HREF="pintos_10.html#SEC152">E.5 GDB</A>).  If Bochs has been built
 properly for Pintos, a triple fault under GDB will cause it to print the
 message &quot;Triple fault: stopping for gdb&quot; on the console and break into
 the debugger.  (If Bochs is not running under GDB, a triple fault will
@@ -956,9 +956,9 @@ wrong.  It should only take a few minutes at most.
 
 <A NAME="Modifying Bochs"></A>
 <HR SIZE="6">
-<A NAME="SEC156"></A>
+<A NAME="SEC157"></A>
 <H2> E.7 Modifying Bochs </H2>
-<!--docid::SEC156::-->
+<!--docid::SEC157::-->
 <P>
 
 An advanced debugging technique is to modify and recompile the
@@ -984,7 +984,7 @@ of your choice.
 Run this script without arguments to learn usage instructions.
 To use your <Q><TT>bochs</TT></Q> binary with <CODE>pintos</CODE>,
 put it in your <CODE>PATH</CODE>, and make sure that it is earlier than
-<Q><TT>/usr/class/cs140/`uname -m`/bin/bochs</TT></Q>.
+<Q><TT>/usr/class/cos450/bin/bochs</TT></Q>.
 </P>
 <P>
 
@@ -998,9 +998,9 @@ above, a good place to start adding <CODE>printf()</CODE>s is
 
 <A NAME="Debugging Tips"></A>
 <HR SIZE="6">
-<A NAME="SEC157"></A>
+<A NAME="SEC158"></A>
 <H2> E.8 Tips </H2>
-<!--docid::SEC157::-->
+<!--docid::SEC158::-->
 <P>
 
 The page allocator in <Q><TT>threads/palloc.c</TT></Q> and the block allocator in
@@ -1023,8 +1023,8 @@ smaller than about 1.6 TB.
 <A NAME="Development Tools"></A>
 <HR SIZE="6">
 <TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
-<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_10.html#SEC145"> &lt;&lt; </A>]</TD>
-<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_11.html#SEC158"> &gt;&gt; </A>]</TD>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_10.html#SEC146"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos_11.html#SEC159"> &gt;&gt; </A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Top">Top</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="pintos.html#SEC_Contents">Contents</A>]</TD>
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
@@ -1036,6 +1036,6 @@ This document was generated
 by <I>Stephen Houser</I> on <I>August, 7 2018</I>
 using <A HREF="http://texi2html.cvshome.org"><I>texi2html</I></A>
 </FONT>
-
+</div></main>
 </BODY>
 </HTML>
