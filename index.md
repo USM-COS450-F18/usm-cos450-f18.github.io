@@ -19,7 +19,7 @@ title: Home
 | 11/28 | File System Interface & Implementation                      | Ch. 10 & 11 |                                                                                                   |
 | 12/5  | I/O Systems                                                 | Ch. 12      |                                                                                                   |
 | 12/12 | Protection & Security                                       | Ch. 13 & 14 |                                                                                                   |
-| 12/19 |                                                             |             | [Project 3 - Virtual Memory Due](pintos/pintos_4.html), [Final Exam (online)](https://bb.courses.maine.edu) |
+| 12/19 |                                                             |             | [Project 3 - Virtual Memory Due](pintos/pintos_4.html), [Project 4 - Filesystems Due (graduate only)](/pintos/pintos_5.html), [Final Exam (online)](https://bb.courses.maine.edu) |
 
 Please refer to the [Syllabus](syllabus.html) for more details on the course, grading, schedule, etc.. This page is meant only as a summary and quick-reference.
 
