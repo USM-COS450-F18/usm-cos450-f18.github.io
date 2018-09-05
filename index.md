@@ -10,7 +10,7 @@ title: Home
 | 9/26  | Threads                                                     | Ch. 4       |                                                                                                   |
 | 10/3  | Process Synchronization                                     | Ch. 5       |                                                                                                   |
 | 10/10 | CPU Scheduling                                              | Ch. 6       | [Project 1 - Threads Due](pintos/pintos_2.html)                                                   |
-| 10/17 | Project 2 - User Programs Session                           |             | [Midterm Exam (online)](https://bb.courses.maine.edu)                                             |
+| 10/17 | Project 2 - User Programs Session                           |             | [Midterm Exam (online)](https://bb.courses.maine.edu), [Debugging User Programs (video)](https://drive.google.com/open?id=0B-dNF1GpqqFha1BMUUNNZWRoejg)                                             |
 | 10/24 | Main Memory                                                 | Ch. 7       |                                                                                                   |
 | 10/31 | Virtual Memory                                              | Ch. 8       |                                                                                                   |
 | 11/7  | Mass Storage Systems                                        | Ch. 9       |                                                                                                   |
